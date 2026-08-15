@@ -1,0 +1,47 @@
+[
+    {
+        "type": "audio",
+        "source": "aud-1.mp3",
+        "variant": "multiple-choice",
+        "options": ["HUAKIN", "JOAQUIN", "JOIQYEN", "GOAQUEN"],
+        "correct": "JOAQUIN",
+        "onComplete": "My name is Joaquin. J-O-A-Q-U-I-N"
+    },
+    {
+        "type": "audio",
+        "source": "aud-2.mp3",
+        "variant": "multiple-choice",
+        "options": ["FENIKS", "PHOENIX", "PHOENIXE", "PHEONIX"],
+        "correct": "PHOENIX",
+        "onComplete": "Our new Project name is Phoenix. P-H-O-E-N-I-X"
+    },
+    {
+        "type": "audio",
+        "source": "aud-3.mp3",
+        "variant": "multiple-choice",
+        "options": ["AILEEN", "AILEN", "AYLEEN", "AILEAN"],
+        "correct": "AILEEN",
+        "onComplete": "My name is Aileen. A-I-L-E-E-N"
+    },
+        {
+        "type": "audio",
+        "source": "aud-4.mp3",
+        "variant": "user-input",
+        "correct": "GRPC",
+        "onComplete": "G-R-P-C"
+    },
+    {
+        "type": "audio",
+        "source": "aud-5.mp3",
+        "variant": "user-input",
+        "correct": "AEGIS",
+        "onComplete": "A-E-G-I-S"
+    },
+    {
+        "type": "audio",
+        "source": "aud-6.mp3",
+        "variant": "user-input",
+        "correct": "ODYSSEY",
+        "onComplete": "O-D-Y-S-S-E-Y"
+    }
+]

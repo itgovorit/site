@@ -1,0 +1,45 @@
+[
+  {
+    "group": "V vs W",
+    "contrast": ["/v/", "/w/"],
+    "words": [
+      { "word": "Vine", "sound": "/v/" },
+      { "word": "Wine", "sound": "/w/" },
+      { "word": "Vet", "sound": "/v/" },
+      { "word": "Wet", "sound": "/w/" },
+      { "word": "Vest", "sound": "/v/" },
+      { "word": "West", "sound": "/w/" },
+      { "word": "Vary", "sound": "/v/" },
+      { "word": "Wary", "sound": "/w/" }
+    ]
+  },
+  {
+    "group": "V vs F",
+    "contrast": ["/v/", "/f/"],
+    "words": [
+      { "word": "Save", "sound": "/v/" },
+      { "word": "Safe", "sound": "/f/" },
+      { "word": "Prove", "sound": "/v/" },
+      { "word": "Proof", "sound": "/f/" },
+      { "word": "Give", "sound": "/v/" },
+      { "word": "Gif", "sound": "/f/" },
+      { "word": "Leave", "sound": "/v/" },
+      { "word": "Leaf", "sound": "/f/" }
+    ]
+  },
+  {
+    "group": "TH vs F vs T",
+    "contrast": ["/θ/", "/f/", "/t/"],
+    "words": [
+      { "word": "Three", "sound": "/θ/" },
+      { "word": "Free", "sound": "/f/" },
+      { "word": "Tree", "sound": "/t/" },
+      { "word": "Thin", "sound": "/θ/" },
+      { "word": "Fin", "sound": "/f/" },
+      { "word": "Tin", "sound": "/t/" },
+      { "word": "Thought", "sound": "/θ/" },
+      { "word": "Fought", "sound": "/f/" },
+      { "word": "Taught", "sound": "/t/" }
+    ]
+  }
+]

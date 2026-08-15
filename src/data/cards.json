@@ -1,0 +1,25 @@
+[
+  {
+    "title": "Alpha - вит",
+    "description": "Основа основ. Да я знаю что ты знаешь, но подозреваю что путаешь",
+    "image": "thumbnail1m.jpg",
+    "link": "/abc/"
+  },
+  {
+    "title": "Точка, точка, запятая",
+    "description": "(^._.^)",
+    "image": "thumbnail2m.jpg",
+    "link": "/symbols/"
+  },
+  {
+    "title": "Ван Ту Фри",
+    "description": "Считаем до десяти так, чтобы нас поняли с первого раза",
+    "image": "thumbnail3m.jpg",
+    "link": "/numbers-sounds/"
+  },
+  {
+    "title": "Media Library",
+    "description": "Images and audio that support each learning section.",
+    "image": "abc.png"
+  }
+]

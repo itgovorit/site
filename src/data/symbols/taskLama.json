@@ -1,0 +1,9 @@
+{
+  "default": ["default"],
+  "before": { "preposition": "before", "pattern": ["target", "before"] },
+  "after": { "preposition": "after", "pattern": ["after", "target"] },
+  "between": { "preposition": "between", "pattern": ["after", "target", "before"] },
+  "around": { "preposition": "around", "pattern": ["target", "around", "target"] },
+  "start": { "preposition": "at the start", "pattern": ["target", "angry", "angry", "angry"] },
+  "end": { "preposition": "at the end", "pattern": ["happy", "happy", "happy", "target"] }
+}

@@ -1,0 +1,194 @@
+[
+    {
+        "letter": "A",
+        "color": "red",
+        "abbreviation": "API",
+        "full": "Application Programming Interface",
+        "translation": "Интерфейс программирования приложений",
+        "comment": "Да да, произносится по буквам. Так что не 'рэст апи', а 'Рэст эй-пи-ай'"
+    },
+    {
+        "letter": "B",
+        "color": "yellow",
+        "abbreviation": "BI",
+        "full": "Business Intelligence",
+        "translation": "Бизнес-аналитика / Деловая разведка",
+        "comment": "Слово Intelligence имеет несколько значений: и если в AI ('Artificial Intelligence') это 'Интеллект', то в BI это 'Разведка'. А если про кого то говорят что он 'intelligent' - то он умный, а не интеллигент."
+    },
+    {
+        "letter": "C",
+        "color": "red",
+        "abbreviation": "CLI",
+        "full": "Command Line Interface",
+        "translation": "Интерфейс командной строки",
+        "comment": ""
+    },
+    {
+        "letter": "D",
+        "color": "yellow",
+        "abbreviation": "DNS",
+        "full": "Domain Name System",
+        "translation": "Система доменных имен",
+        "comment": ""
+    },
+    {
+        "letter": "E",
+        "color": "red",
+        "abbreviation": "ETA",
+        "full": "Estimated Time of Arrival",
+        "translation": "Расчетное (ожидаемое) время прибытия / выполнения",
+        "comment": "Это не техническая аббревиатура, но ее надо знать так как менеджеры часто ею пользуються как в переписке, так и в речи. Разраб полчаса обьясняет все сложности имплементации новой фичи - а Продукт Оунеру важно когда это будет сделано, а не как. Поэтому вопрос <b>'Do you have an ETA?'</b> и возможный ответ: <b><s>Да  х### его зн</s> Couple of days (пару дней) </b>"
+    },
+    {
+        "letter": "F",
+        "color": "green",
+        "abbreviation": "FYI",
+        "full": "For Your Information",
+        "translation": "К вашему сведению",
+        "comment": "Тоже не техническое сокращение, но часто используется в переписке реже в речи. Юзаем когда сообщаем информацию, но не ждем каких то действий в ответ. Пример: '<b>@leha-tester</b> я задеплоил фичу, проверяй. <b>@Oleg-product-owner</b> FYI'"
+    },
+    {
+        "letter": "G",
+        "color": "red",
+        "abbreviation": "GPU",
+        "full": "Graphics Processing Unit",
+        "translation": "Графический процессор / Видеокарта",
+        "comment": "Если читаешь в 2030 году - они подешевели ?"
+    },
+    {
+        "letter": "H",
+        "color": "yellow",
+        "abbreviation": "HTTP",
+        "full": "HyperText Transfer Protocol",
+        "translation": "Протокол передачи гипертекста",
+        "comment": "Многие произносят <b>H</b> как ‘АШ’ - <b>АШ-ТЭ-ЭМ-ЭЛ </b>. Но нет такой буквы в английском - есть только ‘эйч’. Эйчаров (HR) же ‘Ашарами’ не называем) "
+    },
+    {
+        "letter": "I",
+        "color": "red",
+        "abbreviation": "IDE",
+        "full": "Integrated Development Environment",
+        "translation": "Интегрированная среда разработки",
+        "comment": " Еще один пример когда разрабы произносят слово на русский манер, а потом делают также на звонке с англоговорящими людьми. Так что никакой  И-ДЭ-Ешки"
+    },
+    {
+        "letter": "J",
+        "color": "red",
+        "abbreviation": "JSX",
+        "full": "JavaScript XML",
+        "translation": "Расширение JavaScript для разметки",
+        "comment": "<b>J</b> и <b>G</b> путают часто. Вспоминаем слово <b>Диджей (DJ)</b> - там же правильно произносим "
+    },
+    {
+        "letter": "K",
+        "color": "green",
+        "abbreviation": "KPI",
+        "full": "Key Performance Indicator",
+        "translation": "Ключевой показатель эффективности (КПЭ)",
+        "comment": "Будь они не ладны. Но внимание буква <b>K</b> происносится как <b>'Кей'</b>, а слово <b>Key</b>(ключ) читается <b>'Ки'</b> - не наоборот"
+    },
+    {
+        "letter": "L",
+        "color": "green",
+        "abbreviation": "LTS",
+        "full": "Long-Term Support",
+        "translation": "Долговременная поддержка",
+        "comment": ""
+    },
+    {
+        "letter": "M",
+        "color": "green",
+        "abbreviation": "MCP",
+        "full": "Model Context Protocol",
+        "translation": "Протокол контекста модели",
+        "comment": ""
+    },
+    {
+        "letter": "N",
+        "color": "green",
+        "abbreviation": "NPM",
+        "full": "Node Package Manager",
+        "translation": "Пакетный менеджер Node",
+        "comment": ""
+    },
+    {
+        "letter": "O",
+        "color": "green",
+        "abbreviation": "OMG",
+        "full": "Oh My God / Oh My Goodness",
+        "translation": "О боже мой! / Ого!",
+        "comment": "Фраза выражает удивдление, негодование или восторг и используется даже атеистами))"
+    },
+    {
+        "letter": "P",
+        "color": "yellow",
+        "abbreviation": "PR",
+        "full": "Pull Request",
+        "translation": "Запрос на слияние веток",
+        "comment": ""
+    },
+    {
+        "letter": "Q",
+        "color": "green",
+        "abbreviation": "QA",
+        "full": "Quality Assurance",
+        "translation": "Обеспечение качества / Тестирование",
+        "comment": ""
+    },
+    {
+        "letter": "S",
+        "color": "green",
+        "abbreviation": "SDK",
+        "full": "Software Development Kit",
+        "translation": "Комплект для разработки программного обеспечения",
+        "comment": "Опять же внимательно - никакого 'Эс-Дэ-Ка'"
+    },
+    {
+        "letter": "T",
+        "color": "green",
+        "abbreviation": "TLS",
+        "full": "Transport Layer Security",
+        "translation": "Протокол защиты транспортного уровня",
+        "comment": ""
+    },
+    {
+        "letter": "U",
+        "color": "red",
+        "abbreviation": "URL",
+        "full": "Uniform Resource Locator",
+        "translation": "Унифицированный указатель ресурса",
+        "comment": ""
+    },
+    {
+        "letter": "V",
+        "color": "yellow",
+        "abbreviation": "VM",
+        "full": "Virtual Machine",
+        "translation": "Виртуальная машина",
+        "comment": ""
+    },
+    {
+        "letter": "W",
+        "color": "yellow",
+        "abbreviation": "WWW",
+        "full": "World Wide Web",
+        "translation": "Всемирная паутина",
+        "comment": "ВВВ -Ленинград ))"
+    },
+    {
+        "letter": "X",
+        "color": "yellow",
+        "abbreviation": "XHR",
+        "full": "XMLHttpRequest",
+        "translation": "Объект для HTTP-запросов из JavaScript.",
+        "comment": "Не путаем с тем <b>'Иксом'</b> который мы искали в школе. Это <b>'Экс'</b>"
+    },
+    {
+        "letter": "Z",
+        "color": "green",
+        "abbreviation": "ZTA",
+        "full": "Zero Trust Architecture",
+        "translation": "Архитектура нулевого доверия",
+        "comment": "Обычно произносим так на Амриканский манер <b>'Зи'</b>, ну можно и <b>'Зед'</b> "
+    }
+]
