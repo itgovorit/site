@@ -50,7 +50,7 @@ function Answer(task) {
           autocomplete="off"
           disabled
         />
-        <button type="button" class="answer-submit btn btn-primary" disabled>
+        <button type="button" class="answer-submit btn btn-secondary" disabled>
           Check
         </button>
       </div>
@@ -86,7 +86,7 @@ function TaskCard(task, index) {
       <div class="card-body items-center gap-6">
         <button
           type="button"
-          class="play btn btn-primary btn-lg gap-2"
+          class="play btn btn-secondary btn-lg gap-2"
           data-audio="${task.source}"
           aria-label="Прослушать запись ${index + 1}"
         >${speakerIcon} Listen</button>

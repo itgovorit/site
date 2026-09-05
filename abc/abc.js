@@ -72,20 +72,20 @@ function Content() {
         <strong>возвращайся</strong> сюда.
       </p>
       <p>
-        <a id="task1" href="/abc-task1/" class="btn btn-primary">Task 1</a>
+        <a id="task1" href="/abc-task1/" class="btn btn-secondary">Task 1</a>
       </p>
 
       <p>Если дошел до конца — Good job! 👏</p>
 
       <p>Кстати, держи пару полезных фраз в мозго-копилку:</p>
       <ul class="list-disc space-y-2 pl-6">
-        <li><strong>Spell it</strong>, please. (Скажи по буквам, плиз.)</li>
+        <li><strong>Spell it</strong>, please. [Скажи по буквам, плиз.]</li>
         <li>
-          FTP <strong>stands for</strong> “File Transfer Protocol”. (FTP
-          расшифровывается как…)
+          FTP <strong>stands for</strong> “File Transfer Protocol”. [FTP
+          расшифровывается как…]
         </li>
-        <li>No, it’s <strong>capital</strong> “D”. (Нет, “D” заглавная.)</li>
-        <li>I-<strong>double</strong> A-S. (I-двойная A-S.)</li>
+        <li>No, it’s <strong>capital/uppercase</strong> “D”. [Нет, “D” заглавная.]</li>
+        <li>I-<strong>double</strong> A-S. [I-двойная A-S.]</li>
       </ul>
       <p>
         👉 Task #2: Идем на следующую страницу. Тут слушаем аудио и выбираем
@@ -93,7 +93,7 @@ function Content() {
         произносят имя по буквам.
       </p>
       <p>
-        <a id="task2" href="/abc-task2/" class="btn btn-primary">Task 2</a>
+        <a id="task2" href="/abc-task2/" class="btn btn-secondary">Task 2</a>
       </p>
 
       <h2 class="pt-4 text-2xl font-bold">Применение: 💪</h2>
@@ -107,7 +107,7 @@ function Content() {
         </li>
       </ul>
       ${Warning(`Не все аббревиатуры произносятся по буквам. Так называемые
-        акронимы звучат как одно слово. Например: SaaS, WIP — не произносят
+        акронимы звучат как одно слово. Например: JSON, BIOS — не произносят
         отдельными буквами.`)}
 
       <h2 class="pt-4 text-2xl font-bold">One more thing 💡</h2>
@@ -123,6 +123,13 @@ function Content() {
         Такой алфавит работает идеально, если собеседник тоже в теме. Но даже если
         нет — ты всё равно будешь звучать круто! 😎 Не просто Dima, а ➡️ Delta -
         India - Mike - Alpha
+      </p>
+
+      <p>
+        В закладку: Переходи на страницу где собрано все о чем мы говорили в одном месте. Можешь добавить в  браузерную закладку 🏷️
+      </p>
+      <p>
+        <a id="bookmark" href="/abc-bookmark/" class="btn btn-secondary"> to Bookmark</a>
       </p>
     </article>
   `;

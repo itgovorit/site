@@ -1,0 +1,114 @@
+[
+  {
+    "word": "Open",
+    "image": "open.png",
+    "transcription": "/ˈoʊpən/",
+    "translation": "открыть",
+    "comment": "обрати внимание что <b>O</b> звучит как в алфавите."
+  },
+  {
+    "word": "Close",
+    "image": "close.png",
+    "transcription": "/kloʊz/",
+    "translation": "закрыть",
+    "comment": "Здесь это глагол - <i>'закрыть'</i>  и в конце звук <code>/z/</code>. А еще это слово может быть прилагательным - <i>'близкий'</i> и тогда в конце звук <code>/s/</code>. <b>Close friend</b>"
+  },
+  {
+    "word": "Add",
+    "image": "add.png",
+    "transcription": "/æd/",
+    "translation": "добавить",
+    "comment": ""
+  },
+  {
+    "word": "Remove",
+    "image": "remove.png",
+    "transcription": "/rɪˈmuːv/",
+    "translation": "удалить",
+    "comment": "Ты же помнишь что мы не оглушаем звонкие согласные звуки в конце слов? "
+  },
+  {
+    "word": "Copy",
+    "image": "copy.png",
+    "transcription": "/ˈkɑːpi/",
+    "translation": "скопировать",
+    "comment": ""
+  },
+  {
+    "word": "Paste",
+    "image": "paste.png",
+    "transcription": "/peɪst/",
+    "translation": "вставить",
+    "comment": ""
+  },
+  {
+    "word": "Share",
+    "image": "share.png",
+    "transcription": "/ʃɛr/",
+    "translation": "поделиться, раздать (экран)",
+    "comment": ""
+  },
+  {
+    "word": "Swap",
+    "image": "swap.png",
+    "transcription": "/swɑːp/",
+    "translation": "поменять местами",
+    "comment": ""
+  },
+  {
+    "word": "Mute",
+    "image": "mute.png",
+    "transcription": "/mjuːt/",
+    "translation": "Заглушить",
+    "comment": "Прилагательное <i>mute</i> означает <i>'немой'</i>. Ну и значение глагола соответсвующее"
+  },
+  {
+    "word": "Unmute",
+    "image": "unmute.png",
+    "transcription": "/ˌʌnˈmjuːt/",
+    "translation": "включить звук",
+    "comment": ""
+  },
+  {
+    "word": "Increase",
+    "image": "increase.png",
+    "transcription": "/ɪnˈkriːs/",
+    "translation": "увеличить",
+    "comment": ""
+  },
+  {
+    "word": "Decrease",
+    "image": "decrease.png",
+    "transcription": "/dɪˈkriːs/",
+    "translation": "уменьшить",
+    "comment": ""
+  },
+  {
+    "word": "Zoom in",
+    "image": "zoom-in.png",
+    "transcription": "/zuːm ɪn/",
+    "translation": "приблизить",
+    "comment": ""
+  },
+  {
+    "word": "Zoom out",
+    "image": "zoom-out.png",
+    "transcription": "/zuːm aʊt/",
+    "translation": "отдалить",
+    "comment": ""
+  },
+  {
+    "word": "Scroll up",
+    "image": "scroll-up.png",
+    "transcription": "/skroʊl ʌp/",
+    "translation": "прокрутить вверх",
+    "comment": ""
+  },
+  {
+    "word": "Scroll down",
+    "image": "scroll-down.png",
+    "transcription": "/skroʊl daʊn/",
+    "translation": "прокрутить вниз",
+    "comment": ""
+  }
+]

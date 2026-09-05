@@ -159,7 +159,7 @@ function LevelPanel(level, levelIndex) {
               <div class="carousel-item flex ${REEL_ITEM} w-full items-center justify-center"><span class="text-4xl">🤔</span></div>
               <div class="carousel-item flex ${REEL_ITEM} w-full items-center justify-center">${crossIcon}</div>
               <div class="carousel-item flex ${REEL_ITEM} w-full items-center justify-center">
-                <button type="button" class="play-sound btn btn-circle btn-primary" data-key="" aria-label="Прослушать">${speakerIcon}</button>
+                <button type="button" class="play-sound btn btn-circle btn-secondary" data-key="" aria-label="Прослушать">${speakerIcon}</button>
               </div>
             </div>
             <div class="h-11"></div>

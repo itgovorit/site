@@ -1,12 +1,12 @@
 // Importing the asset lets Vite hash and bundle it (self-contained output).
-import logoUrl from "../logo.png";
+import logoUrl from "../logo.svg";
 
 // Shared site header used across all pages so the navbar stays consistent.
-// Pass a `backHref` to show a red back button in the left corner.
+// Pass a `backHref` to show a green back button in the left corner.
 export function Header({ backHref } = {}) {
   const backButton = backHref
     ? `
-      <a href="${backHref}" class="btn btn-ghost btn-circle text-2xl text-error" aria-label="Назад">
+      <a href="${backHref}" class="btn btn-ghost btn-circle text-2xl text-secondary" aria-label="Назад">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6" aria-hidden="true">
           <path d="M15 18l-6-6 6-6" />
         </svg>

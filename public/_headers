@@ -1,0 +1,5 @@
+# Cloudflare Pages custom headers.
+# robots.txt only asks crawlers not to fetch; this header tells anything that
+# does fetch a page not to index it or follow its links.
+/*
+  X-Robots-Tag: noindex, nofollow, noarchive, nosnippet, noimageindex

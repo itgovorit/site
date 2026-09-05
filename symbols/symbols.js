@@ -44,7 +44,7 @@ function Content() {
          Не обязательно знать все символы. Иногда достаточно узнать что ты пока не знаешь 😉.
       </p>
       <p>
-        <a id="task1" href="/symbols-task1/" class="btn btn-primary">Task #1</a>
+        <a id="task1" href="/symbols-task1/" class="btn btn-secondary">Task #1</a>
       </p>
 
       <p>
@@ -66,7 +66,7 @@ function Content() {
             <p>Давай быстро проверим как ты это запомнил на примере Ламы. 
             Причем тут лама не важно - это просто например</p>
       <p>
-        <a id="taskLama" href="/symbols-task-lama/" class="btn btn-primary">Task с Ламой</a>
+        <a id="taskLama" href="/symbols-task-lama/" class="btn btn-secondary">Task с Ламой</a>
       </p>
 
       <p>Ок, теперь нам нужен глагол. Потому что какое предложение без глагола?! Возьмем всего три:</p>
@@ -94,10 +94,16 @@ function Content() {
       <h2 class="pt-4 text-2xl font-bold">Практика: 🚀</h2>
        <p>Давай попытаемся построить предложения используя этот набор слов</p>
       <p>
-        <a id="task3" href="/symbols-task3/" class="btn btn-primary">Task #3</a>
+        <a id="task3" href="/symbols-task3/" class="btn btn-secondary">Task #3</a>
       </p>
 
-
+      <p>
+        Держи шпаргалку: символ, его название и транскрипция — всё в одном месте, с
+        озвучкой. 🔖
+      </p>
+      <p>
+        <a id="bookmark" href="/symbols-bookmark/" class="btn btn-secondary">Bookmark</a>
+      </p>
     </article>
   `;
 }

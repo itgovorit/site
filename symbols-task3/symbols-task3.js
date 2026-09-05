@@ -76,7 +76,7 @@ function TaskCard(task, index) {
         </div>
 
         <div class="flex flex-wrap items-center gap-3">
-          <button type="button" class="check btn btn-primary">Check</button>
+          <button type="button" class="check btn btn-secondary">Check</button>
           <button type="button" class="reset btn btn-ghost">Reset</button>
           ${
             isLast

@@ -71,7 +71,7 @@ function Content() {
         Давай попробуем услышать разницу:
       </p>
       <p>
-        <a id="task1" href="/numbers-sounds-task1/" class="btn btn-primary">Task: /v/ vs /w/</a>
+        <a id="task1" href="/numbers-sounds-task1/" class="btn btn-secondary">Task: /v/ vs /w/</a>
       </p>
       <p>
         Никакого «ван»! Для русского звука «в» есть близкий аналог
@@ -143,7 +143,7 @@ function Content() {
       </p>
       <p>Услышишь разницу? Проверь себя:</p>
       <p>
-        <a id="task2" href="/numbers-sounds-task2/" class="btn btn-primary">Task: /v/ vs /f/</a>
+        <a id="task2" href="/numbers-sounds-task2/" class="btn btn-secondary">Task: /v/ vs /f/</a>
       </p>
       <p>
         Эту ошибку очень трудно вывести из речи, и встречается она даже у людей с
@@ -168,7 +168,7 @@ function Content() {
       </p>
       <p>Начнём с тренировки слуха:</p>
       <p>
-        <a id="task3" href="/numbers-sounds-task3/" class="btn btn-primary">Task: θ / f / t</a>
+        <a id="task3" href="/numbers-sounds-task3/" class="btn btn-secondary">Task: θ / f / t</a>
       </p>
       <p>
         <strong>А как тренировать произношение?</strong> Даже когда ты понял, куда
@@ -199,6 +199,14 @@ function Content() {
         Если ты дочитал до конца — молодец! Если получилось услышать разницу в
         звуках — SUPER! А теперь пора начинать считать правильно. Не «ван, ту,
         фри»… 😉
+      </p>
+
+      <p>
+        Держи шпаргалку: цифра, слово и транскрипция — всё в одном месте, с
+        озвучкой. 🔖
+      </p>
+      <p>
+        <a id="bookmark" href="/numbers-sounds-bookmark/" class="btn btn-secondary">Bookmark</a>
       </p>
     </article>
   `;
