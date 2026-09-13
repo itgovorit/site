@@ -1,0 +1,70 @@
+{
+  "vowels": [
+    [
+      { "id": 1, "symbol": "iː", "example": "see" },
+      { "id": 2, "symbol": "ɪ", "example": "sit" },
+      { "id": 3, "symbol": "ʊ", "example": "book" },
+      { "id": 4, "symbol": "uː", "example": "food" }
+    ],
+    [
+      { "id": 5, "symbol": "e", "example": "ten" },
+      { "id": 6, "symbol": "ə", "example": "about" },
+      { "id": 7, "symbol": "ɜː", "example": "bird" },
+      { "id": 8, "symbol": "ɔː", "example": "door" }
+    ],
+    [
+      { "id": 9, "symbol": "æ", "example": "cat" },
+      { "id": 10, "symbol": "ʌ", "example": "up" },
+      { "id": 11, "symbol": "ɑː", "example": "car" },
+      { "id": 12, "symbol": "ɒ", "example": "hot" }
+    ]
+  ],
+  "diphthongs": [
+    [
+      { "id": 1, "symbol": "ɪə", "example": "here" },
+      { "id": 2, "symbol": "eɪ", "example": "day" }
+    ],
+    [
+      { "id": 3, "symbol": "ʊə", "example": "tour" },
+      { "id": 4, "symbol": "ɔɪ", "example": "boy" },
+      { "id": 5, "symbol": "əʊ", "example": "go" }
+    ],
+    [
+      { "id": 6, "symbol": "eə", "example": "hair" },
+      { "id": 7, "symbol": "aɪ", "example": "my" },
+      { "id": 8, "symbol": "aʊ", "example": "now" }
+    ]
+  ],
+  "consonants": [
+    [
+      { "id": 1, "symbol": "p", "example": "pen" },
+      { "id": 2, "symbol": "b", "example": "bad" },
+      { "id": 3, "symbol": "t", "example": "tea" },
+      { "id": 4, "symbol": "d", "example": "did" },
+      { "id": 5, "symbol": "tʃ", "example": "chair" },
+      { "id": 6, "symbol": "dʒ", "example": "jump" },
+      { "id": 7, "symbol": "k", "example": "key" },
+      { "id": 8, "symbol": "g", "example": "get" }
+    ],
+    [
+      { "id": 9, "symbol": "f", "example": "fish" },
+      { "id": 10, "symbol": "v", "example": "van" },
+      { "id": 11, "symbol": "θ", "example": "think" },
+      { "id": 12, "symbol": "ð", "example": "this" },
+      { "id": 13, "symbol": "s", "example": "see" },
+      { "id": 14, "symbol": "z", "example": "zoo" },
+      { "id": 15, "symbol": "ʃ", "example": "she" },
+      { "id": 16, "symbol": "ʒ", "example": "vision" }
+    ],
+    [
+      { "id": 17, "symbol": "m", "example": "man" },
+      { "id": 18, "symbol": "n", "example": "no" },
+      { "id": 19, "symbol": "ŋ", "example": "sing" },
+      { "id": 20, "symbol": "h", "example": "hat" },
+      { "id": 21, "symbol": "l", "example": "leg" },
+      { "id": 22, "symbol": "r", "example": "red" },
+      { "id": 23, "symbol": "w", "example": "wet" },
+      { "id": 24, "symbol": "j", "example": "yes" }
+    ]
+  ]
+}

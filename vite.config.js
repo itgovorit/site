@@ -24,6 +24,7 @@ export default defineConfig({
         "symbols-task3": resolve(__dirname, "symbols-task3/index.html"),
         "symbols-task-lama": resolve(__dirname, "symbols-task-lama/index.html"),
         "symbols-bookmark": resolve(__dirname, "symbols-bookmark/index.html"),
+        "sound-chart": resolve(__dirname, "sound-chart/index.html"),
         "numbers-sounds": resolve(__dirname, "numbers-sounds/index.html"),
         "numbers-sounds-task1": resolve(__dirname, "numbers-sounds-task1/index.html"),
         "numbers-sounds-task2": resolve(__dirname, "numbers-sounds-task2/index.html"),

@@ -1,10 +1,16 @@
 import "../src/style.css";
 import { Header } from "../src/components/header.js";
+import { SoundChartLink } from "../src/components/sound-chart-link.js";
 
 // Audio clip for the "Таня танцует в Тиктоке" example.
 import tanyaUrl from "../src/audio/numbers-sounds-pairs/tanya.mp3";
 
 const PAGE_TITLE = "Ван Ту Фри";
+
+// The sounds this page teaches, as short ids for the sound chart:
+// /t/ (c-3), /v/ (c-10), /θ/ (c-11) and /w/ (c-23) — the four runes already
+// unlocked in src/data/sound-chart-runes.json.
+const SOUNDS_COVERED = ["c-3", "c-10", "c-11", "c-23"];
 
 function Hero() {
   return `
@@ -207,6 +213,12 @@ function Content() {
       </p>
       <p>
         <a id="bookmark" href="/numbers-sounds-bookmark/" class="btn btn-secondary">Bookmark</a>
+      </p>
+      <p>
+        А здесь ссылка на таблицу со звуками. Она большая - но не пугайся. Потому что, А) Это ВСЕ звуки английского - больше нет Б) 4 "руны" мы уже прошли. К этой таблице мы будем еще  возвращаться не раз. 
+      </p>
+      <p>
+        ${SoundChartLink({ ids: SOUNDS_COVERED, anchorId: "sound-chart" })}
       </p>
     </article>
   `;

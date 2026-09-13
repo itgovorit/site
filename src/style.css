@@ -52,6 +52,137 @@
   }
 }
 
+/* Sound chart. The table is a wooden board image, so cells stay transparent and
+   every line is drawn in light ink over the grain. Colours live here as custom
+   properties so the whole table retunes from one place. */
+.sound-chart {
+  --chart-line: rgb(255 255 255 / 0.18); /* thin grid lines */
+  --chart-rule: rgb(255 255 255 / 0.6); /* thick section rules */
+  /* Sounds not learned yet: dark like the shadow inside a cut, with a light lip
+     where the lower edge of the groove catches the light. */
+  --chart-carved: rgb(24 13 6 / 0.82);
+  --chart-carved-lip: rgb(255 232 194 / 0.16);
+  --chart-focus: #e4b028; /* logo gold, matching the rune glow */
+  /* Defined on the chart, not on the glow itself, so hover can light up a rune
+     that is not currently highlighted. */
+  --rune-glow-color: #e4b028;
+
+  /* Stretched to the table's exact size, so the carved frame lands on its edge. */
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  /* Keeps a rune's glow on the boards: without this the halo of a rune near an
+     edge spills off the table and onto the page. */
+  overflow: hidden;
+
+  /* Grid lines: each cell draws its own right and bottom edge and the board
+     draws the leftover top and left, which avoids doubling lines between cells. */
+  border-top: 1px solid var(--chart-line);
+  border-left: 1px solid var(--chart-line);
+}
+.sound-chart > * {
+  border-right: 1px solid var(--chart-line);
+  border-bottom: 1px solid var(--chart-line);
+}
+/* The chart's two heavy rules. Specificity beats the thin lines above, so these
+   win without depending on the order of classes in the markup. */
+.sound-chart > .rule-right {
+  border-right: 3px solid var(--chart-rule);
+}
+.sound-chart > .rule-bottom {
+  border-bottom: 3px solid var(--chart-rule);
+}
+/* A sound with no rune yet is inactive: chiselled into the boards instead of
+   resting on them. The dark glyph is the shadow down in the cut, and the pale
+   line just below it is the light catching the groove's lower edge — that pairing
+   is what reads as depth rather than as faded text. */
+.sound-chart .carved {
+  color: var(--chart-carved);
+  text-shadow:
+    0 -1px 1px rgb(0 0 0 / 0.55),
+    0 1px 0 var(--chart-carved-lip),
+    0 2px 2px rgb(0 0 0 / 0.3);
+}
+/* Runes are objects lying on the boards, so they cast a small shadow. */
+.sound-chart .rune img {
+  filter: drop-shadow(0 2px 3px rgb(0 0 0 / 0.55));
+}
+
+/* The rune glow: a gold dot pulses behind the rune and the art is left slightly
+   translucent, so the light shows through the stone and the rune reads as lit
+   from within. Gold is the logo's colour and reads well on the wood.
+   Three states share it — a sound highlighted via ?highlight=, and hovering or
+   keyboard-focusing any rune. */
+.rune-glow,
+.sound-chart .rune:hover,
+.sound-chart .rune:focus-visible {
+  position: relative;
+  /* Lift above neighbouring cells so the halo is not clipped by the next cell. */
+  z-index: 10;
+  /* Own stacking context, so the dot below stays behind this rune rather than
+     dropping behind the whole grid. */
+  isolation: isolate;
+}
+.rune-glow::before,
+.sound-chart .rune:hover::before,
+.sound-chart .rune:focus-visible::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 32px;
+  height: 32px;
+  /* Centre the dot without a transform, leaving transform free for the pulse. */
+  margin: -16px 0 0 -16px;
+  border-radius: 50%;
+  /* Painted after the cell's own background but before its content, which puts
+     the light between the white cell and the rune. */
+  z-index: -1;
+  background-color: var(--rune-glow-color);
+  /* Three 2s pulses, so the attention-grabbing runs for 6s and stops on a cycle
+     boundary. `forwards` holds the dim end state, which keeps the highlighted
+     runes marked once the pulsing is over. */
+  animation: softGlow 2s ease-in-out 3 forwards;
+}
+/* Hover and focus are direct responses to the user, so they keep pulsing for as
+   long as they last rather than stopping after three. */
+.sound-chart .rune:hover::before,
+.sound-chart .rune:focus-visible::before {
+  animation: softGlow 2s ease-in-out infinite;
+}
+.rune-glow img,
+.sound-chart .rune:hover img,
+.sound-chart .rune:focus-visible img {
+  opacity: 0.8;
+}
+@keyframes softGlow {
+  0%,
+  100% {
+    opacity: 0.4;
+    box-shadow:
+      0 0 10px var(--rune-glow-color),
+      0 0 20px var(--rune-glow-color);
+  }
+  50% {
+    opacity: 1;
+    box-shadow:
+      0 0 20px var(--rune-glow-color),
+      0 0 40px var(--rune-glow-color),
+      0 0 60px var(--rune-glow-color);
+  }
+}
+/* Keep the light, drop the pulsing. */
+@media (prefers-reduced-motion: reduce) {
+  .rune-glow::before,
+  .sound-chart .rune:hover::before,
+  .sound-chart .rune:focus-visible::before {
+    animation: none;
+    opacity: 0.85;
+    box-shadow:
+      0 0 20px var(--rune-glow-color),
+      0 0 40px var(--rune-glow-color);
+  }
+}
+
 /* Flip cards (instructions task): a card flips once to reveal the word side. */
 .flip-card {
   perspective: 1000px;

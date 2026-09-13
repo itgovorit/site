@@ -10,9 +10,10 @@
   {
     "title": "Точка, точка, запятая",
     "description": "(^._.^)",
+     "imageAvif": "thumbnail2m.avif",
     "image": "thumbnail2m.jpg",
     "link": "/symbols/",
-    "isActive": false
+    "isActive": true
   },
   {
     "title": "Ван Ту Фри",

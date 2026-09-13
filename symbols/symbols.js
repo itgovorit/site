@@ -32,24 +32,25 @@ function Content() {
       <p>Коллега материт себя, хвалит тебя. Или наоборот 😄</p>
       <p class="text-center">The END! 🎉</p>
 
-      <h2 class="pt-4 text-2xl font-bold">Объяснение 🧠:</h2>
+      <h2 class="pt-4 text-2xl font-bold">Symbols 🔣:</h2>
       <p>
-        Чтоб правильно произнести свою почту, терминальные команды, куски кода и
-        пароли (гы гы) нам нужно повторить/выучить полезные символы на языке
+        Чтобы правильно произнести свою почту, терминальные команды, куски кода и
+        пароли (гы-гы) нам нужно повторить/выучить полезные символы на языке
         Шекспира.
       </p>
 
       <p>
-        Для начала проверим что ты знаешь. Переходи на страницу и выбирай один из трех уровней.
-         Не обязательно знать все символы. Иногда достаточно узнать что ты пока не знаешь 😉.
+        Для начала проверим что ты знаешь. Переходи на страницу и выбирай один из трёх уровней.
+         Не обязательно знать все символы. Иногда достаточно узнать Что ты пока не знаешь 😉.
       </p>
       <p>
         <a id="task1" href="/symbols-task1/" class="btn btn-secondary">Task #1</a>
       </p>
 
+      <h2 class="pt-4 text-2xl font-bold">Position ⛳:</h2>
       <p>
-        Итак после того как повторили/узнали символы давай определимся, куда их можно поставить. Исходя из
-        нашего сценария есть несколько вариантов:
+        Итак, после того как повторили/узнали символы, давай определимся, куда их можно поставить. Исходя из
+        нашего сценария, есть несколько вариантов:
       </p>
       <p class="text-sm text-base-content/60">
         🟢 — символ, который добавляем/меняем &nbsp;·&nbsp; 🔴 — буква
@@ -64,11 +65,12 @@ function Content() {
       </ul>
 
             <p>Давай быстро проверим как ты это запомнил на примере Ламы. 
-            Причем тут лама не важно - это просто например</p>
+            Причем тут лама не важно - это просто "например"</p>
       <p>
         <a id="taskLama" href="/symbols-task-lama/" class="btn btn-secondary">Task с Ламой</a>
       </p>
 
+      <h2 class="pt-4 text-2xl font-bold">Action 🤸:</h2>
       <p>Ок, теперь нам нужен глагол. Потому что какое предложение без глагола?! Возьмем всего три:</p>
       <ul class="space-y-2">
         <li>➕ <strong>Add</strong> — <span class="spoiler text-sm">добавить</span></li>
@@ -81,7 +83,7 @@ function Content() {
       <ul class="space-y-2">
         <li><span class="font-mono">(➕ ";" 🔴🟢 "i")</span> → Add a semicolon after i</li>
         <li><span class="font-mono">(❌ "-" 🟢🔴 "p")</span> → <span class="spoiler">Remove the hyphen before p</span></li>
-        <li><span class="font-mono">(🔄 "-" to "_" 🔴🟢🔴 "m" and "g")</span> → <span class="spoiler">Change the hyphen to underscore between m and g</span></li>
+        <li><span class="font-mono">(🔄 "-" to "_" 🔴🟢🔴 "m" and "g")</span> → <span class="spoiler">Change the hyphen to an underscore between "m" and "g"</span></li>
         <li><span class="font-mono">(❌ "," 🔴🔴🔴🟢)</span> → <span class="spoiler">Remove the comma at the end</span></li>
         <li><span class="font-mono">(➕ "$" 🟢🔴🔴🔴)</span> → <span class="spoiler">Add a Dollar sign at the start</span></li>
       </ul>
@@ -91,18 +93,28 @@ function Content() {
         Можно и пропустить артикль. Однако особо внимательные наверное заметили определённую
         закономерность. Но как-нибудь обсудим!`)}
 
-      <h2 class="pt-4 text-2xl font-bold">Практика: 🚀</h2>
+      <h2 class="pt-4 text-2xl font-bold">Practice: 🚀</h2>
        <p>Давай попытаемся построить предложения используя этот набор слов</p>
       <p>
         <a id="task3" href="/symbols-task3/" class="btn btn-secondary">Task #3</a>
       </p>
+      
+       <p>
+        Если все сделал - Respect! Надеюсь не намучился с перетаскиванием. 😕
+      </p>
 
       <p>
         Держи шпаргалку: символ, его название и транскрипция — всё в одном месте, с
-        озвучкой. 🔖
+        озвучкой. 🔖. Там ты увидишь что некоторые символы имеют несколько названий. <code>'!'</code> часто называют <strong>bang</strong>
+        Точка в url всегда читается как  <strong>dot</strong>, но в конце предложения это <strong>period</strong>. Но особо не загоняйся - со временем разберёшься, что где. 
+        Если знаешь хотя бы одно слово - уже вэри гуд
       </p>
       <p>
         <a id="bookmark" href="/symbols-bookmark/" class="btn btn-secondary">Bookmark</a>
+      </p>
+      <h2 class="pt-4 text-2xl font-bold">One more thing 💡 :</h2>
+      <p>
+Раз мы заговорили про знаки. Закрывающие скобки в конце предложения - это не такой уж международный знак улыбки)). С иностранцами лучше использовать смайлик 😀 либо добавить больше символов =) ;-) 
       </p>
     </article>
   `;

@@ -1,0 +1,44 @@
+[
+  {
+    "correct": "ls -l",
+    "incorrect": "ls - l",
+    "sentence": ["remove", "the space", "between", "the hyphen and 'l'"],
+    "extraOptions": ["add", "underscore"],
+    "audio": "01.mp3"
+  },
+  {
+    "correct": "cd Documents",
+    "incorrect": "cd Document",
+    "sentence": ["add", "'s'", "at the end"],
+    "extraOptions": ["remove", "at the start"],
+    "audio": "02.mp3"
+  },
+  {
+    "correct": "$PATH",
+    "incorrect": "PATH",
+    "sentence": ["add", "a dollar sign", "at the start"],
+    "extraOptions": ["remove", "at the end"],
+    "audio": "03.mp3"
+  },
+  {
+    "correct": "npm run dev",
+    "incorrect": "npm run dev,",
+    "sentence": ["remove", "the comma", "at the end"],
+    "extraOptions": ["add", "dot"],
+    "audio": "04.mp3"
+  },
+  {
+    "correct": "user_name",
+    "incorrect": "user-name",
+    "sentence": ["change", "the hyphen", "to an underscore"],
+    "extraOptions": ["remove", "at the start"],
+    "audio": "05.mp3"
+  },
+  {
+    "correct": "git commit -m",
+    "incorrect": "git commit m",
+    "sentence": ["add", "a hyphen", "before 'm'"],
+    "extraOptions": ["remove", "after m"],
+    "audio": "06.mp3"
+  }
+]

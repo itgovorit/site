@@ -1,6 +1,6 @@
 [
   { "symbol": "%", "names": ["Percent"] },
-    { "symbol": ".", "names": ["Dot"] },
+    { "symbol": ".", "names": ["Dot", "period"] },
   { "symbol": "$", "names": ["Dollar sign"] },
     { "symbol": "X X", "names": ["Space"] },
       { "symbol": "@", "names": ["At"] },

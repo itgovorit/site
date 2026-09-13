@@ -1,0 +1,6 @@
+{
+  "_comment": "Which sounds have been learned and so show a rune instead of the plain symbol. Groups are v = vowel, d = diphthong, c = consonant; list the phoneme's `id` from sound-chart.json under its group. A sound's short id is {group}-{id} (e.g. c-3), which is both the rune file name in src/img/phonemes/ and the token used by ?highlight= in the URL. A sound listed here but missing an image quietly falls back to the plain symbol. Add an id to reveal that rune.",
+  "v": [],
+  "d": [],
+  "c": [3, 10, 11, 23]
+}

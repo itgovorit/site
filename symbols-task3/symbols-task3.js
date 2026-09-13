@@ -2,10 +2,22 @@ import "../src/style.css";
 import { Header } from "../src/components/header.js";
 
 // Drag-and-drop task definitions.
-import tasks from "../src/data/symbols/task2.json";
+import tasks from "../src/data/symbols/task3.json";
 
 // Full-bleed background for the play area.
 import bgUrl from "../src/img/symbols/task3.jpg";
+
+// Explanation clips, keyed by file name (e.g. "01.mp3") so each task names its
+// own clip in task3.json — no reliance on file order. Only URL strings are
+// imported here; the .mp3 bytes load on demand when the user presses Listen
+// (see playAudio).
+const audioModules = import.meta.glob("../src/audio/symbols/task3/*.mp3", {
+  eager: true,
+  import: "default",
+});
+const audioByFile = Object.fromEntries(
+  Object.entries(audioModules).map(([path, url]) => [path.split("/").pop(), url]),
+);
 
 // Fisher–Yates shuffle (returns a new array).
 function shuffle(array) {
@@ -17,6 +29,20 @@ function shuffle(array) {
   return copy;
 }
 
+// The task order is shuffled on every load, so a returning user does not get the
+// same first sentence. Each task names its own clip, so shuffling cannot break
+// the pairing. From here on the page works off `deck`, and a task's index means
+// its position in the deck, not its position in task3.json.
+const deck = shuffle(tasks);
+
+const speakerIcon = `
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true">
+    <path d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 0 0 1.5 12c0 .898.121 1.768.35 2.595.341 1.24 1.518 1.905 2.659 1.905h1.93l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06Z" />
+    <path d="M18.584 5.106a.75.75 0 0 1 1.06 0c3.808 3.807 3.808 9.98 0 13.788a.75.75 0 0 1-1.06-1.06 8.25 8.25 0 0 0 0-11.668.75.75 0 0 1 0-1.06Z" />
+    <path d="M15.932 7.757a.75.75 0 0 1 1.061 0 6 6 0 0 1 0 8.486.75.75 0 0 1-1.06-1.061 4.5 4.5 0 0 0 0-6.364.75.75 0 0 1 0-1.06Z" />
+  </svg>
+`;
+
 const arrowIcon = `
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true">
     <path fill-rule="evenodd" d="M16.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z" clip-rule="evenodd" />
@@ -24,7 +50,7 @@ const arrowIcon = `
 `;
 
 function Explanation() {
-  const tabs = tasks
+  const tabs = deck
     .map(
       (_, i) =>
         `<button type="button" class="task-tab tab ${i === 0 ? "tab-active" : ""}" data-target="${i}">${i + 1}</button>`,
@@ -51,7 +77,12 @@ function Chip(word) {
 
 function TaskCard(task, index) {
   const pool = shuffle([...task.sentence, ...task.extraOptions]);
-  const isLast = index === tasks.length - 1;
+  const isLast = index === deck.length - 1;
+  // Takes the Check button's place once the answer is correct (see checkTask).
+  // Omitted when the task has no matching clip.
+  const playButton = audioByFile[task.audio]
+    ? `<button type="button" class="play btn btn-secondary hidden gap-2" aria-label="Listen to the explanation">${speakerIcon} Listen</button>`
+    : "";
 
   return `
     <div
@@ -77,6 +108,7 @@ function TaskCard(task, index) {
 
         <div class="flex flex-wrap items-center gap-3">
           <button type="button" class="check btn btn-secondary">Check</button>
+          ${playButton}
           <button type="button" class="reset btn btn-ghost">Reset</button>
           ${
             isLast
@@ -93,7 +125,7 @@ function Tasks() {
   return `
     <section class="bg-cover bg-center" style="background-image: url(${bgUrl});">
       <div class="flex min-h-[60vh] items-center justify-center px-4 py-12">
-        ${tasks.map(TaskCard).join("")}
+        ${deck.map(TaskCard).join("")}
       </div>
     </section>
   `;
@@ -111,7 +143,7 @@ function App() {
 
 // Show only the chosen task and highlight its tab.
 function showTask(index) {
-  if (index < 0 || index >= tasks.length) return;
+  if (index < 0 || index >= deck.length) return;
   document
     .querySelectorAll(".task-tab")
     .forEach((t) => t.classList.toggle("tab-active", Number(t.dataset.target) === index));
@@ -209,7 +241,64 @@ function setupDragAndDrop() {
   if (root) root.addEventListener("pointerdown", onPointerDown);
 }
 
-// --- Clicks: tabs, check, reset, next ---
+// --- Audio playback (one clip at a time, loaded on demand) ---
+let currentAudio = null;
+
+function setPlayLoading(button, loading) {
+  if (loading) {
+    if (button.dataset.originalHtml === undefined) {
+      button.dataset.originalHtml = button.innerHTML;
+    }
+    button.innerHTML =
+      '<span class="loading loading-spinner loading-sm"></span> Загрузка';
+    button.classList.add("pointer-events-none");
+    button.setAttribute("aria-busy", "true");
+  } else {
+    if (button.dataset.originalHtml !== undefined) {
+      button.innerHTML = button.dataset.originalHtml;
+      delete button.dataset.originalHtml;
+    }
+    button.classList.remove("pointer-events-none");
+    button.removeAttribute("aria-busy");
+  }
+}
+
+function playAudio(button) {
+  // The clip is named by the task itself, found via the card's deck position.
+  const task = deck[Number(button.closest(".task")?.dataset.index)];
+  const url = audioByFile[task?.audio];
+  if (!url) return;
+
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio = null;
+  }
+
+  setPlayLoading(button, true);
+  // Creating the Audio here is what triggers the network request — nothing is
+  // fetched until this point.
+  const audio = new Audio(url);
+  currentAudio = audio;
+
+  audio.addEventListener("playing", () => setPlayLoading(button, false), {
+    once: true,
+  });
+  audio.addEventListener("ended", () => {
+    if (currentAudio === audio) currentAudio = null;
+  });
+  audio.addEventListener(
+    "error",
+    () => {
+      setPlayLoading(button, false);
+      if (currentAudio === audio) currentAudio = null;
+    },
+    { once: true },
+  );
+
+  audio.play().catch(() => setPlayLoading(button, false));
+}
+
+// --- Clicks: tabs, play, check, reset, next ---
 function setupClicks() {
   const root = document.querySelector("#app");
   if (!root) return;
@@ -226,6 +315,12 @@ function setupClicks() {
       return;
     }
 
+    const playBtn = event.target.closest(".play");
+    if (playBtn) {
+      playAudio(playBtn);
+      return;
+    }
+
     const taskEl = event.target.closest(".task");
     if (!taskEl) return;
     if (event.target.closest(".check")) checkTask(taskEl);
@@ -234,7 +329,7 @@ function setupClicks() {
 }
 
 function checkTask(taskEl) {
-  const task = tasks[Number(taskEl.dataset.index)];
+  const task = deck[Number(taskEl.dataset.index)];
   if (!task) return;
 
   const answer = taskEl.querySelector(".answer");
@@ -253,11 +348,16 @@ function checkTask(taskEl) {
 
   if (isCorrect) {
     taskEl.dataset.locked = "true";
-    taskEl.querySelector(".check").disabled = true;
     taskEl.querySelectorAll(".chip").forEach((chip) => {
       chip.classList.remove("cursor-grab");
       chip.classList.add("cursor-default");
     });
+    // The task is solved, so Check has nothing left to do: swap it for Listen
+    // so the user can hear the explanation read aloud.
+    const checkBtn = taskEl.querySelector(".check");
+    checkBtn.disabled = true;
+    checkBtn.classList.add("hidden");
+    taskEl.querySelector(".play")?.classList.remove("hidden");
     // Reveal the Next button (absent on the last task).
     taskEl.querySelector(".next")?.classList.remove("hidden");
   }
@@ -268,7 +368,11 @@ function resetTask(taskEl) {
   const answer = taskEl.querySelector(".answer");
   answer.querySelectorAll(".chip").forEach((chip) => bank.appendChild(chip));
   delete taskEl.dataset.locked;
-  taskEl.querySelector(".check").disabled = false;
+  // Bring Check back and hide Listen again.
+  const checkBtn = taskEl.querySelector(".check");
+  checkBtn.disabled = false;
+  checkBtn.classList.remove("hidden");
+  taskEl.querySelector(".play")?.classList.add("hidden");
   taskEl.querySelector(".next")?.classList.add("hidden");
   // Restore the neutral border.
   answer.classList.remove("border-success", "border-error");

@@ -82,8 +82,10 @@ function Explanation() {
     <section class="mx-auto max-w-3xl space-y-4 px-4 py-10 leading-relaxed">
       <h1 class="text-3xl font-bold">Найди пару 🎰</h1>
       <p>
-        Сапоставь символ и его название. Крути центральный барабан стрелками и проверяй нажав <strong>Check</strong>. Угадал, послушай и жми <strong>Next</strong>.
-      </p>
+<p>
+  Сопоставь символ и его название. Крути центральный барабан стрелками и проверяй, нажав <strong>Check</strong>. Угадал — послушай и жми <strong>Next</strong>.
+  И <strong>X</strong> там только для контекста, чтоб не запутаться, где минус, а где нижнее подчеркивание, например: <strong>X-X</strong> и <strong>X_X</strong>
+</p>
       <div role="tablist" class="tabs tabs-boxed justify-center">${tabs}</div>
     </section>
   `;
@@ -145,7 +147,7 @@ function LevelPanel(level, levelIndex) {
       class="level bg-cover bg-center ${levelIndex === 0 ? "" : "hidden"}"
       data-level="${levelIndex}"
       data-index="0"
-      style="background-image: url(${level.bg});"
+      style="background-image: linear-gradient(rgb(0 0 0 / 0.45), rgb(0 0 0 / 0.45)), url(${level.bg});"
     >
       <div class="flex min-h-[60vh] flex-col items-center justify-center gap-6 px-4 py-12">
         <div class="dots flex items-center gap-2 rounded-full bg-white/70 px-4 py-2 backdrop-blur-sm">${dots}</div>
@@ -167,6 +169,13 @@ function LevelPanel(level, levelIndex) {
         </div>
 
         <button type="button" class="action btn btn-lg border-0 bg-base-100/80 backdrop-blur-sm hover:bg-base-100" data-mode="check">Check</button>
+        ${
+          // Revealed in place of Check once the level is done. The hardest level
+          // has nothing to move on to, so it gets no button.
+          levelIndex < LEVELS.length - 1
+            ? `<button type="button" class="next-level btn btn-lg btn-success hidden" data-target="${levelIndex + 1}">Next Level</button>`
+            : ""
+        }
         <span class="feedback font-medium" aria-live="polite"></span>
       </div>
     </section>
@@ -288,6 +297,14 @@ function next(levelEl) {
     feedback.textContent = "🎉 Уровень пройден!";
     feedback.classList.add("text-success");
     action.disabled = true;
+
+    // Swap Check out for "Next Level" rather than leaving a dead button next to
+    // it. On the last level there is none, so the disabled Check stays put.
+    const nextLevelBtn = levelEl.querySelector(".next-level");
+    if (nextLevelBtn) {
+      action.classList.add("hidden");
+      nextLevelBtn.classList.remove("hidden");
+    }
     return;
   }
 
@@ -322,6 +339,17 @@ function playSymbol(key) {
   currentAudio.play().catch(() => {});
 }
 
+// Reveal one level and mark its tab. Used by the tabs and by "Next Level".
+function showLevel(target) {
+  const index = String(target);
+  document
+    .querySelectorAll(".level-tab")
+    .forEach((t) => t.classList.toggle("tab-active", t.dataset.target === index));
+  document
+    .querySelectorAll(".level")
+    .forEach((l) => l.classList.toggle("hidden", l.dataset.level !== index));
+}
+
 function setup() {
   const root = document.querySelector("#app");
   if (!root) return;
@@ -330,18 +358,19 @@ function setup() {
     // Level selector: show only the chosen level.
     const tab = event.target.closest(".level-tab");
     if (tab) {
-      const target = tab.dataset.target;
-      document
-        .querySelectorAll(".level-tab")
-        .forEach((t) => t.classList.toggle("tab-active", t === tab));
-      document
-        .querySelectorAll(".level")
-        .forEach((l) => l.classList.toggle("hidden", l.dataset.level !== target));
+      showLevel(tab.dataset.target);
       return;
     }
 
     const levelEl = event.target.closest(".level");
     if (!levelEl) return;
+
+    // Shown once a level is finished; moves on the same way the tabs do.
+    const nextLevelBtn = event.target.closest(".next-level");
+    if (nextLevelBtn) {
+      showLevel(nextLevelBtn.dataset.target);
+      return;
+    }
 
     const action = event.target.closest(".action");
     if (action) {
