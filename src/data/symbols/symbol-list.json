@@ -6,7 +6,7 @@
       { "symbol": "@", "names": ["At"] },
   { "symbol": "&", "names": ["Ampersand", "And"] },
   { "symbol": "X_X", "names": ["Underscore"] },
-  { "symbol": "X-X", "names": ["Hyphen", "Dash", "Minus"] },
+  { "symbol": "X-X", "names": ["Dash", "Hyphen", "Minus"] },
   { "symbol": "/", "names": ["(Forward) slash"] },
    { "symbol": "*", "names": ["Asterisk", "Star", "Wildcard"]},
   { "symbol": "#", "names": ["Hash", "Pound sign", "Number sign", "Sharp"] },

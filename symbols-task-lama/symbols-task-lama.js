@@ -110,6 +110,21 @@ let score = 0;
 let answered = false;
 let timerId = null;
 
+// Nothing is timed until the user says go, so the first question does not burn
+// its 5 seconds while the page is still being read.
+function renderStart() {
+  const stage = document.querySelector("#stage");
+  stage.innerHTML = `
+    <img src="${lamaImg.default}" alt="" class="h-32 w-32 object-contain" />
+    <p class="text-lg">
+      ${ENTRIES.length} вопросов, по ${TIME_LIMIT} секунд на каждый.
+    </p>
+    <button type="button" class="start btn btn-lg btn-secondary gap-2">
+      Start ${arrowIcon}
+    </button>
+  `;
+}
+
 function startGame() {
   order = shuffle(ENTRIES.map((_, i) => i));
   current = 0;
@@ -131,6 +146,11 @@ function renderRound() {
   const options = shuffle([entry.preposition, wrong.preposition]);
 
   const tiles = entry.pattern.map(PatternTile).join("");
+
+  // "around" shows two $ tiles, so the sentence has to agree: "$s are around".
+  // Taken from the pattern rather than the key, so it stays right by itself.
+  const targets = entry.pattern.filter((token) => token === "target").length;
+  const lead = targets > 1 ? "<strong>$</strong>s are" : "<strong>$</strong> is";
   const buttons = options
     .map(
       (opt) => `
@@ -153,6 +173,7 @@ function renderRound() {
     </div>
 
     <div class="flex flex-wrap items-center justify-center gap-4" data-correct="${escapeHtml(entry.preposition)}">
+      <span class="rounded-full bg-[#fbebc8] px-4 py-2 text-xl font-medium">${lead}</span>
       ${buttons}
     </div>
 
@@ -210,7 +231,7 @@ function handleAnswer(value) {
   stage.querySelector(".next-wrap").innerHTML = `
     <button type="button"
       class="next btn btn-lg gap-2 border-0 bg-base-100/80 backdrop-blur-sm hover:bg-base-100">
-      ${last ? "Результат" : "Дальше"} ${arrowIcon}
+      ${last ? "Result" : "Next"} ${arrowIcon}
     </button>
   `;
 }
@@ -247,9 +268,10 @@ document.querySelector("#stage").addEventListener("click", (event) => {
     next();
     return;
   }
-  if (event.target.closest(".restart")) {
+  // Start and Try again both begin a timed run right away.
+  if (event.target.closest(".start") || event.target.closest(".restart")) {
     startGame();
   }
 });
 
-startGame();
+renderStart();

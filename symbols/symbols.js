@@ -82,8 +82,8 @@ function Content() {
       Теперь мы можем давать полноценные инструкции для ввода в терминал:</p>
       <ul class="space-y-2">
         <li><span class="font-mono">(➕ ";" 🔴🟢 "i")</span> → Add a semicolon after i</li>
-        <li><span class="font-mono">(❌ "-" 🟢🔴 "p")</span> → <span class="spoiler">Remove the hyphen before p</span></li>
-        <li><span class="font-mono">(🔄 "-" to "_" 🔴🟢🔴 "m" and "g")</span> → <span class="spoiler">Change the hyphen to an underscore between "m" and "g"</span></li>
+        <li><span class="font-mono">(❌ "-" 🟢🔴 "p")</span> → <span class="spoiler">Remove the dash before p</span></li>
+        <li><span class="font-mono">(🔄 "-" to "_" 🔴🟢🔴 "m" and "g")</span> → <span class="spoiler">Change the dash to an underscore between "m" and "g"</span></li>
         <li><span class="font-mono">(❌ "," 🔴🔴🔴🟢)</span> → <span class="spoiler">Remove the comma at the end</span></li>
         <li><span class="font-mono">(➕ "$" 🟢🔴🔴🔴)</span> → <span class="spoiler">Add a Dollar sign at the start</span></li>
       </ul>

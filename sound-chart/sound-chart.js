@@ -17,17 +17,20 @@ import runes from "../src/data/sound-chart-runes.json";
 // Every row therefore adds up to 24 units and the layout never reflows: the
 // chart keeps its shape and the cells only grow or shrink with the viewport.
 
-// The wooden board the chart is laid out on.
+// The wooden board the chart is laid out on. PNG rather than JPEG because the
+// board has transparent edges, and the page needs to show through them.
 import boardAvifUrl from "../src/img/phonemes/sound-bg.avif";
-import boardJpegUrl from "../src/img/phonemes/sound-bg.jpeg";
+import boardPngUrl from "../src/img/phonemes/sound-bg.png";
 
 // Rune art, keyed by a sound's short id (e.g. "c-3"), each with both formats.
 // Only URL strings are imported here; the bytes load when the browser paints.
-const runeModules = import.meta.glob("../src/img/phonemes/*.{png,avif}", {
+// The pattern is limited to the group letters so the board images sharing this
+// folder are not pulled into the bundle as well.
+const runeModules = import.meta.glob("../src/img/phonemes/[vdc]-*.{png,avif}", {
   eager: true,
   import: "default",
 });
-// A short id and nothing else, so other art in the folder (the board) is skipped.
+// A short id and nothing else, in case the glob ever widens.
 const RUNE_FILE = /^[vdc]-\d+$/;
 const runeArt = {};
 for (const [path, url] of Object.entries(runeModules)) {
@@ -86,7 +89,7 @@ function Cell(cell, { prefix, spanClass, extra = "" }) {
   const identity = `data-symbol="${symbol}" data-key="${prefix}-${id}"`;
 
   // A learned sound shows its rune (the art already contains the symbol), so the
-  // <img> itself needs no alt text — the button carries the label.
+  // <img> itself needs no alt text — the cell carries the label.
   const face = rune
     ? `<picture>
         ${rune.avif ? `<source srcset="${rune.avif}" type="image/avif" />` : ""}
@@ -94,8 +97,8 @@ function Cell(cell, { prefix, spanClass, extra = "" }) {
       </picture>`
     : `<span class="text-xl sm:text-2xl">${symbol}</span>`;
 
-  // Only learned sounds do something on click, so only those are buttons —
-  // an unlearned cell would otherwise be a control that goes nowhere.
+  // A learned sound stays a button: nothing is wired to the click yet, but this
+  // is the control that will open its card, so it keeps hover and focus.
   if (rune) {
     return `
       <button
@@ -104,7 +107,6 @@ function Cell(cell, { prefix, spanClass, extra = "" }) {
         ${identity}
         title="${label}"
         aria-label="${label}"
-        aria-haspopup="dialog"
       >${face}</button>
     `;
   }
@@ -180,11 +182,12 @@ function Chart() {
   const consonantCells = SECTIONS.consonants.rows.map(ConsonantRow).join("");
 
   // The board is a background image so the cells above it can stay transparent.
-  // Stated twice: browsers without image-set() take the plain jpeg on the first
-  // line, the rest pick the smaller avif on the second.
+  // Stated twice: browsers without image-set() take the plain png on the first
+  // line, the rest pick the smaller avif on the second. Both formats carry an
+  // alpha channel, so the board's edges stay transparent either way.
   const board = [
-    `background-image: url(${boardJpegUrl});`,
-    `background-image: image-set(url(${boardAvifUrl}) type('image/avif'), url(${boardJpegUrl}) type('image/jpeg'));`,
+    `background-image: url(${boardPngUrl});`,
+    `background-image: image-set(url(${boardAvifUrl}) type('image/avif'), url(${boardPngUrl}) type('image/png'));`,
   ].join(" ");
 
   // min-w keeps the narrowest cell at ~46px: the 1px frame comes off the top,
@@ -200,24 +203,6 @@ function Chart() {
         ${consonantCells}
       </div>
     </div>
-  `;
-}
-
-// The card opened by a rune. Intentionally empty for now — `data-key` and
-// `data-symbol` are set on open, so the content can be filled in later.
-function RuneCard() {
-  return `
-    <dialog id="rune-card" class="modal">
-      <div class="modal-box">
-        <form method="dialog">
-          <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" aria-label="Закрыть">✕</button>
-        </form>
-        <div class="card-content"></div>
-      </div>
-      <form method="dialog" class="modal-backdrop">
-        <button aria-label="Закрыть">close</button>
-      </form>
-    </dialog>
   `;
 }
 
@@ -243,9 +228,7 @@ function Explanation() {
     <section class="mx-auto max-w-3xl space-y-4 px-4 py-10 leading-relaxed">
       <h1 class="text-3xl font-bold">Таблица звуков 🔊</h1>
       <p>
-        Все 44 звука английского языка на одной картинке. Сверху гласные: слева
-        монофтонги, справа дифтонги. Снизу согласные. Звуки, которые мы уже
-        разобрали, превращаются в руны — нажми на руну, чтобы открыть карточку.
+Страница в разработке. Скоро будет интерактивной
       </p>
     </section>
   `;
@@ -259,7 +242,6 @@ function App() {
       ${Chart()}
       ${Credits()}
     </main>
-    ${RuneCard()}
   `;
 }
 
@@ -301,23 +283,5 @@ function applyHighlightFromUrl() {
   matched[0]?.scrollIntoView({ inline: "center", block: "nearest" });
 }
 
-// --- The rune card ---
-function setupRuneCard() {
-  const root = document.querySelector("#app");
-  const dialog = document.querySelector("#rune-card");
-  if (!root || !dialog) return;
-
-  root.addEventListener("click", (event) => {
-    const cell = event.target.closest(".rune");
-    if (!cell) return;
-
-    // Hand the card what it needs; the content itself comes later.
-    dialog.dataset.key = cell.dataset.key;
-    dialog.dataset.symbol = cell.dataset.symbol;
-    dialog.showModal();
-  });
-}
-
 document.querySelector("#app").innerHTML = App();
 applyHighlightFromUrl();
-setupRuneCard();

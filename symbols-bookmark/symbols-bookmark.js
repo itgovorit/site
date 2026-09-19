@@ -60,26 +60,30 @@ function displaySymbol(symbol) {
 }
 
 const speakerIcon = `
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4" aria-hidden="true">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true">
     <path d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 0 0 1.5 12c0 .898.121 1.768.35 2.595.341 1.24 1.518 1.905 2.659 1.905h1.93l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06ZM18.584 5.106a.75.75 0 0 1 1.06 0c3.808 3.807 3.808 9.98 0 13.788a.75.75 0 0 1-1.06-1.06 8.25 8.25 0 0 0 0-11.668.75.75 0 0 1 0-1.06Z" />
     <path d="M15.932 7.757a.75.75 0 0 1 1.061 0 6 6 0 0 1 0 8.486.75.75 0 0 1-1.06-1.061 4.5 4.5 0 0 0 0-6.364.75.75 0 0 1 0-1.06Z" />
   </svg>
 `;
 
+// h-11 w-11 is a 44px target, the smallest comfortable size for a thumb (and the
+// WCAG 2.5.5 minimum). min-h-0 and p-0 stop DaisyUI's own button sizing from
+// fighting it.
 function SoundButton(key, label) {
   if (!audioByKey[key]) return "";
   return `
     <button type="button" data-audio="${key}"
-      class="btn btn-circle btn-xs btn-ghost border border-base-content/30 text-base-content/60 hover:border-base-content/60 hover:text-base-content"
+      class="btn btn-circle btn-ghost h-11 min-h-0 w-11 p-0 border border-base-content/30 text-base-content/60 hover:border-base-content/60 hover:text-base-content"
       aria-label="${label}">${speakerIcon}</button>
   `;
 }
 
-// A name + its sound control, kept together on one line.
+// One line per name: the word on the left, its sound button pushed to the right
+// edge. min-w-0 lets a long name wrap instead of pushing the button out.
 function NamePlay(name, extraClass = "") {
   return `
-    <span class="inline-flex items-center gap-1 ${extraClass}">
-      <span>${name}</span>
+    <span class="flex w-full items-center justify-between gap-2 ${extraClass}">
+      <span class="min-w-0">${name}</span>
       ${SoundButton(soundKey(name), `Прослушать «${name}»`)}
     </span>
   `;
@@ -89,17 +93,19 @@ function Cell({ symbol, names }) {
   const [primary, ...rest] = names;
   const ipa = IPA[symbol] ?? "";
 
+  // Alternative names stack, so each one gets its own line with the name at the
+  // left and its button at the right, matching the primary name above.
   const restRow = rest.length
-    ? `<div class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-sm text-base-content/80">
+    ? `<div class="flex flex-col gap-2 text-base text-base-content/80">
         ${rest.map((n) => NamePlay(n)).join("")}
       </div>`
     : "";
 
   return `
     <div class="w-[calc(50%-0.375rem)] rounded-box bg-base-100 shadow sm:w-52">
-      <div class="flex flex-col items-center justify-center gap-2 p-4 text-center">
-        <span class="badge badge-warning flex h-14 w-14 items-center justify-center rounded-full text-2xl font-bold">${displaySymbol(symbol)}</span>
-        ${NamePlay(primary, "font-medium")}
+      <div class="flex flex-col gap-2 p-4">
+        <span class="badge badge-warning flex h-14 w-14 items-center justify-center self-center rounded-full text-2xl font-bold">${displaySymbol(symbol)}</span>
+        ${NamePlay(primary, "text-lg font-medium")}
         ${ipa ? `<span class="font-mono text-sm text-base-content/70">${ipa}</span>` : ""}
         ${restRow}
       </div>
@@ -139,7 +145,7 @@ function setButtonLoading(button, loading) {
     if (button.dataset.originalHtml === undefined) {
       button.dataset.originalHtml = button.innerHTML;
     }
-    button.innerHTML = '<span class="loading loading-spinner loading-xs"></span>';
+    button.innerHTML = '<span class="loading loading-spinner loading-sm"></span>';
     button.classList.add("pointer-events-none");
     button.setAttribute("aria-busy", "true");
   } else {

@@ -20,7 +20,7 @@
     "description": "Считаем до десяти так, чтобы нас поняли с первого раза",
     "image": "thumbnail3m.jpg",
     "link": "/numbers-sounds/",
-    "isActive": false
+    "isActive": true
   },
   {
     "title": "Инструкции",

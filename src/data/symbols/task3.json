@@ -2,7 +2,7 @@
   {
     "correct": "ls -l",
     "incorrect": "ls - l",
-    "sentence": ["remove", "the space", "between", "the hyphen and 'l'"],
+    "sentence": ["remove", "the space", "between", "the dash and 'l'"],
     "extraOptions": ["add", "underscore"],
     "audio": "01.mp3"
   },
@@ -30,7 +30,7 @@
   {
     "correct": "user_name",
     "incorrect": "user-name",
-    "sentence": ["change", "the hyphen", "to an underscore"],
+    "sentence": ["change", "the dash", "to an underscore"],
     "extraOptions": ["remove", "at the start"],
     "audio": "05.mp3"
   },

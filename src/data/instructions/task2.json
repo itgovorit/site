@@ -1,0 +1,256 @@
+{
+  "title": "Verb-Noun Association Test for Web Developers",
+  "description": "Choose the correct verb that logically completes the developer task or phrase.",
+  "questions": [
+    {
+      "id": 1,
+      "target_phrase": "the browser dev tools",
+      "options": [
+        {
+          "text": "Open",
+          "is_correct": true
+        },
+        {
+          "text": "Swap",
+          "is_correct": false
+        },
+        {
+          "text": "Mute",
+          "is_correct": false
+        },
+        {
+          "text": "Increase",
+          "is_correct": false
+        }
+      ],
+      "correct_verb": "Open",
+      "full_phrase": "Open the browser dev tools",
+      "explanation": "You open developer tools in the browser to inspect code and debug."
+    },
+    {
+      "id": 2,
+      "target_phrase": "an open issue on GitHub",
+      "options": [
+        {
+          "text": "Decrease",
+          "is_correct": false
+        },
+        {
+          "text": "Minimize",
+          "is_correct": false
+        },
+        {
+          "text": "Close",
+          "is_correct": true
+        },
+        {
+          "text": "Turn off",
+          "is_correct": false
+        }
+      ],
+      "correct_verb": "Close",
+      "full_phrase": "Close an open issue on GitHub",
+      "explanation": "In issue trackers like GitHub or Jira, issues are closed when resolved."
+    },
+    {
+      "id": 3,
+      "target_phrase": "unused dependencies from package.json",
+      "options": [
+        {
+          "text": "Swap",
+          "is_correct": false
+        },
+        {
+          "text": "Remove",
+          "is_correct": true
+        },
+        {
+          "text": "Unmute",
+          "is_correct": false
+        },
+        {
+          "text": "Minimize",
+          "is_correct": false
+        }
+      ],
+      "correct_verb": "Remove",
+      "full_phrase": "Remove unused dependencies from package.json",
+      "explanation": "Unneeded packages or dependencies are removed or uninstalled."
+    },
+    {
+      "id": 4,
+      "target_phrase": "your screen during the morning standup",
+      "options": [
+        {
+          "text": "Add",
+          "is_correct": false
+        },
+        {
+          "text": "Open",
+          "is_correct": false
+        },
+        {
+          "text": "Share",
+          "is_correct": true
+        },
+        {
+          "text": "Turn on",
+          "is_correct": false
+        }
+      ],
+      "correct_verb": "Share",
+      "full_phrase": "Share your screen during the morning standup",
+      "explanation": "In video calls (Zoom, Teams, Slack), you share your screen with team members."
+    },
+    {
+      "id": 5,
+      "target_phrase": "two component positions in the DOM tree",
+      "options": [
+        {
+          "text": "Turn off",
+          "is_correct": false
+        },
+        {
+          "text": "Mute",
+          "is_correct": false
+        },
+        {
+          "text": "Swap",
+          "is_correct": true
+        },
+        {
+          "text": "Decrease",
+          "is_correct": false
+        }
+      ],
+      "correct_verb": "Swap",
+      "full_phrase": "Swap two component positions in the DOM tree",
+      "explanation": "When exchanging the location of two items, you swap them."
+    },
+    {
+      "id": 6,
+      "target_phrase": "your microphone before speaking",
+      "options": [
+        {
+          "text": "Open",
+          "is_correct": false
+        },
+        {
+          "text": "Unmute",
+          "is_correct": true
+        },
+        {
+          "text": "Add",
+          "is_correct": false
+        },
+        {
+          "text": "Increase",
+          "is_correct": false
+        }
+      ],
+      "correct_verb": "Unmute",
+      "full_phrase": "Unmute your microphone before speaking",
+      "explanation": "Audio devices on calls are muted or unmuted."
+    },
+    {
+      "id": 7,
+      "target_phrase": "page load time to improve SEO",
+      "options": [
+        {
+          "text": "Close",
+          "is_correct": false
+        },
+        {
+          "text": "Decrease",
+          "is_correct": true
+        },
+        {
+          "text": "Turn off",
+          "is_correct": false
+        },
+        {
+          "text": "Swap",
+          "is_correct": false
+        }
+      ],
+      "correct_verb": "Decrease",
+      "full_phrase": "Decrease page load time to improve SEO",
+      "explanation": "Performance optimization involves decreasing or reducing loading time."
+    },
+    {
+      "id": 8,
+      "target_phrase": "a feature flag in the staging environment",
+      "options": [
+        {
+          "text": "Open",
+          "is_correct": false
+        },
+        {
+          "text": "Mute",
+          "is_correct": false
+        },
+        {
+          "text": "Swap",
+          "is_correct": false
+        },
+        {
+          "text": "Turn on",
+          "is_correct": true
+        }
+      ],
+      "correct_verb": "Turn on",
+      "full_phrase": "Turn on a feature flag in the staging environment",
+      "explanation": "Feature flags/toggles are turned on (enabled) or turned off (disabled)."
+    },
+    {
+      "id": 9,
+      "target_phrase": "an event listener to the submit button",
+      "options": [
+        {
+          "text": "Add",
+          "is_correct": true
+        },
+        {
+          "text": "Share",
+          "is_correct": false
+        },
+        {
+          "text": "Minimize",
+          "is_correct": false
+        },
+        {
+          "text": "Unmute",
+          "is_correct": false
+        }
+      ],
+      "correct_verb": "Add",
+      "full_phrase": "Add an event listener to the submit button",
+      "explanation": "In web programming, you add event listeners to DOM elements."
+    },
+    {
+      "id": 10,
+      "target_phrase": "the API endpoint URL in the config file",
+      "options": [
+        {
+          "text": "Close",
+          "is_correct": false
+        },
+        {
+          "text": "Change",
+          "is_correct": true
+        },
+        {
+          "text": "Mute",
+          "is_correct": false
+        },
+        {
+          "text": "Minimize",
+          "is_correct": false
+        }
+      ],
+      "correct_verb": "Change",
+      "full_phrase": "Change the API endpoint URL in the config file",
+      "explanation": "Configurations, settings, and URLs are changed or modified."
+    }
+  ]
+}
