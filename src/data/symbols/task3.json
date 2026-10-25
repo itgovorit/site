@@ -37,7 +37,7 @@
   {
     "correct": "git commit -m",
     "incorrect": "git commit m",
-    "sentence": ["add", "a hyphen", "before 'm'"],
+    "sentence": ["add", "a dash", "before 'm'"],
     "extraOptions": ["remove", "after m"],
     "audio": "06.mp3"
   }

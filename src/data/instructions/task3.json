@@ -1,0 +1,62 @@
+{
+  "title": "Rearranging polite requests for developers",
+  "description": "Put the chunks of each request back into the right order.",
+  "sentences": [
+    {
+      "id": 1,
+      "chunks": [
+        "assign",
+        "the ticket",
+        "to me,",
+        "please."
+      ],
+      "translation": "Назначь тикет на меня, пожалуйста.",
+      "audio": "s1.mp3"
+    },
+    {
+      "id": 2,
+      "chunks": [
+        "let's",
+        "move",
+        "the ticket",
+        "to \"In Testing\"."
+      ],
+      "translation": "Давай переведём тикет в «In Testing».",
+      "audio": "s2.mp3"
+    },
+    {
+      "id": 3,
+      "chunks": [
+        "drop",
+        "the link",
+        "in the chat,",
+        "please."
+      ],
+      "translation": "Скинь ссылку в чат, пожалуйста.",
+      "audio": "s3.mp3"
+    },
+    {
+      "id": 4,
+      "chunks": [
+        "let's",
+        "talk",
+        "about it",
+        "after the call."
+      ],
+      "translation": "Давай обсудим это после созвона.",
+      "audio": "s4.mp3"
+    },
+    {
+      "id": 5,
+      "chunks": [
+        "can",
+        "you",
+        "filter",
+        "the board",
+        "by my name?"
+      ],
+      "translation": "Можешь отфильтровать борд по моему имени?",
+      "audio": "s5.mp3"
+    }
+  ]
+}

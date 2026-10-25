@@ -183,6 +183,141 @@
   }
 }
 
+/* Safe-dial answer picker (instructions task 2). The plate turns a quarter turn
+   per press, and whichever option reaches 3 o'clock — where the marker sits — is
+   the chosen answer. The plate and its ticks rotate; each label counter-rotates
+   by the same amount so the words stay upright instead of going upside down. */
+.dial {
+  /* Big enough that the longest option still clears the rim now that labels are
+     set at the sentence's own size. */
+  --dial-size: 16rem;
+  --dial-radius: 4.6rem;
+  position: relative;
+  height: var(--dial-size);
+  width: var(--dial-size);
+  flex: none;
+  border: 0;
+  padding: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  background: radial-gradient(circle at 32% 28%, #f1f5f9, #cbd5e1 52%, #8da0b4);
+  box-shadow:
+    inset 0 0 0 0.55rem #e2e8f0,
+    inset 0 0 1.5rem rgb(15 23 42 / 0.35),
+    0 0.4rem 0.9rem rgb(15 23 42 / 0.25);
+}
+.dial:disabled {
+  cursor: default;
+  filter: saturate(0.55);
+}
+.dial-face {
+  position: absolute;
+  inset: 0;
+  transform: rotate(var(--rot, 0deg));
+  transition: transform 0.5s cubic-bezier(0.22, 0.8, 0.2, 1);
+}
+.dial-tick {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 0.5rem;
+  width: 0.125rem;
+  border-radius: 1px;
+  background: rgb(51 65 85 / 0.45);
+  transform: translate(-50%, -50%) rotate(var(--a))
+    translateY(calc(var(--dial-size) / -2 + 0.85rem));
+}
+.dial-opt {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(var(--a))
+    translateX(var(--dial-radius));
+}
+.dial-opt-text {
+  display: inline-block;
+  white-space: nowrap;
+  border-radius: 9999px;
+  padding: 0.1rem 0.45rem;
+  /* Font and size are inherited from the sentence wrapper, so the word at the
+     marker reads as part of the phrase. Colour is not inherited: the labels sit
+     on the pale plate, while the phrase sits on the dark panel. */
+  color: #1e293b;
+  /* Undoes the plate's rotation and the label's own, keeping the word level. */
+  transform: rotate(calc(-1 * (var(--a) + var(--rot, 0deg))));
+  transition: transform 0.5s cubic-bezier(0.22, 0.8, 0.2, 1);
+}
+/* The option standing at the marker: the one Check will grade. */
+.dial-opt.is-selected .dial-opt-text {
+  background: var(--color-secondary);
+  color: var(--color-secondary-content);
+}
+/* Graded and wrong. Declared after the rule above, which is what lets it win —
+   both selectors carry the same weight. */
+.dial-opt.is-wrong .dial-opt-text {
+  background: var(--color-error);
+  color: var(--color-error-content);
+}
+.dial-hub {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 3.2rem;
+  width: 3.2rem;
+  margin: -1.6rem 0 0 -1.6rem;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #64748b, #1e293b 70%);
+  box-shadow: 0 0.15rem 0.4rem rgb(15 23 42 / 0.45);
+}
+/* Grip bar across the hub, so the turn is visible even mid-spin. */
+.dial-hub::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 0.3rem;
+  width: 2.2rem;
+  margin: -0.15rem 0 0 -1.1rem;
+  border-radius: 9999px;
+  background: rgb(226 232 240 / 0.75);
+}
+/* Pointer sitting just above the phrase, aimed up at the chosen word on the
+   dial. Sized in em so it scales with the text it belongs to. */
+.dial-phrase::before {
+  content: "";
+  display: block;
+  height: 0;
+  width: 0;
+  margin: 0 auto 0.1em;
+  border-left: 0.3em solid transparent;
+  border-right: 0.3em solid transparent;
+  border-bottom: 0.42em solid var(--color-secondary);
+}
+@media (prefers-reduced-motion: reduce) {
+  .dial-face,
+  .dial-opt-text {
+    transition: none;
+  }
+}
+
+/* Instructions task 2: the question panel doubles as the safe door. Once the
+   last phrase is solved it slides up out of its frame, uncovering the reward
+   behind it. Only the transform changes, so the frame keeps its height and the
+   page never reflows. */
+.vault-panel {
+  transition: transform 1.2s cubic-bezier(0.7, 0.02, 0.3, 1);
+  will-change: transform;
+}
+.vault-panel.is-open {
+  /* Past the top edge, where the frame's overflow clips it away. */
+  transform: translateY(-102%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .vault-panel {
+    transition: none;
+  }
+}
+
 /* Flip cards (instructions task): a card flips once to reveal the word side. */
 .flip-card {
   perspective: 1000px;
@@ -206,4 +341,56 @@
 }
 .flip-card-back {
   transform: rotateY(180deg);
+}
+
+/* Instruction rings (bookmark page). The four frames are drawn as SVG instead of
+   loaded as art, so they stay sharp at any size and retune with the theme. Each
+   shape is stroked twice: the lip is the darker, wider pass underneath, and the
+   1.25-unit edge it leaves on either side of the body is what reads as an inked
+   outline. */
+.ring-frame {
+  /* The body is the brand green's hue lifted to a mid lightness. Mixing towards
+     white was the obvious way to lighten it, but that drops the chroma too and
+     the ring comes out sage, so the chroma is set on its own here. */
+  --ring-lip: var(--color-secondary);
+  --ring-body: oklch(57% 0.155 145.96);
+}
+/* The prohibition ring: same construction, red, and struck through. Not the
+   theme's error colour, which is a pink too light to read as a traffic sign. */
+.ring-frame.is-forbidden {
+  --ring-lip: oklch(34% 0.13 27);
+  --ring-body: oklch(55% 0.21 27);
+}
+/* The request ring: amber, because asking is neither an order nor a ban. Amber
+   is inherently light, so this one is taken down to 70% lightness — enough to
+   hold the ring together on a white card, and far enough off the gold inside
+   the verb drawings that the two do not merge. */
+.ring-frame.is-question {
+  --ring-lip: oklch(40% 0.1 75);
+  --ring-body: oklch(70% 0.16 75);
+}
+
+/* The badge hanging off the ring. Its disc is opaque so the emoji stays legible
+   whatever verb has scrolled underneath it. */
+.ring-badge {
+  position: absolute;
+  /* left/top put the badge's centre on the ring, so it is pulled back by half
+     its own size to sit astride the outline. */
+  translate: -50% -50%;
+  display: grid;
+  place-items: center;
+  height: 30%;
+  width: 30%;
+  border-radius: 50%;
+  border: 2px solid var(--ring-lip);
+  background: var(--color-base-100);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.18);
+  /* Stepped with the stage, which is h-40 and then h-48 from the sm breakpoint. */
+  font-size: 1.45rem;
+  line-height: 1;
+}
+@media (min-width: 40rem) {
+  .ring-badge {
+    font-size: 1.7rem;
+  }
 }

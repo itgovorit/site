@@ -117,7 +117,10 @@ function Carousel() {
         </div>
         <div class="flex items-center gap-4">
           <button type="button" class="nav btn btn-circle" data-dir="-1" aria-label="Назад">❮</button>
-          <span id="counter" class="w-16 text-center text-sm font-medium text-base-content/70"></span>
+          <span
+            id="counter"
+            class="w-16 text-center text-sm font-medium text-white [text-shadow:0_1px_3px_rgb(0_0_0/0.9)]"
+          ></span>
           <button type="button" class="nav btn btn-circle" data-dir="1" aria-label="Вперёд">❯</button>
         </div>
       </div>
@@ -141,16 +144,24 @@ let index = 0;
 function show(next, behavior = "smooth") {
   const reel = document.querySelector("#reel");
   const cards = [...reel.children];
-  index = Math.min(Math.max(next, 0), cards.length - 1);
+  const count = cards.length;
+
+  // Forward wraps round, so Next on the last card returns to the first.
+  const wrapped = next < 0 || next >= count;
+  index = ((next % count) + count) % count;
 
   // Items are exactly one reel wide, so offsetLeft maps straight to scrollLeft.
   const left = cards[index].offsetLeft - cards[0].offsetLeft;
-  reel.scrollTo({ left, behavior });
+  // A wrap jumps the full width of the reel; animating that would sweep past
+  // every card, so it lands instantly instead. It has to be "instant" rather
+  // than "auto", because DaisyUI's .carousel sets scroll-behavior: smooth and
+  // "auto" would defer to it.
+  reel.scrollTo({ left, behavior: wrapped ? "instant" : behavior });
 
-  document.querySelector("#counter").textContent = `${index + 1} / ${cards.length}`;
+  document.querySelector("#counter").textContent = `${index + 1} / ${count}`;
   document.querySelectorAll(".nav").forEach((btn) => {
-    const dir = Number(btn.dataset.dir);
-    btn.disabled = dir < 0 ? index === 0 : index === cards.length - 1;
+    // Next always has somewhere to go now; Back still stops at the first card.
+    btn.disabled = Number(btn.dataset.dir) < 0 && index === 0;
   });
 }
 

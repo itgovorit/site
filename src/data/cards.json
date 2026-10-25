@@ -18,15 +18,17 @@
   {
     "title": "Ван Ту Фри",
     "description": "Считаем до десяти так, чтобы нас поняли с первого раза",
+    "imageAvif": "thumbnail3m.avif",
     "image": "thumbnail3m.jpg",
     "link": "/numbers-sounds/",
     "isActive": true
   },
   {
-    "title": "Инструкции",
-    "description": "Как сказать коллегам что им надо делать, и как понять куда тебе надо идти.",
-    "image": "abc.png",
+    "title": "Конструкция Инструкции",
+    "description": "Как сказать коллегам, что им делать, и как после понять, куда тебе надо идти.",
+    "imageAvif": "thumbnail4m.avif",
+    "image": "thumbnail4m.jpg",
     "link": "/instructions/",
-    "isActive": false
+    "isActive": true
   }
 ]

@@ -1,5 +1,6 @@
 import "../src/style.css";
 import { Header } from "../src/components/header.js";
+import { getInsertBeforeElement } from "../src/components/chip-drag.js";
 
 // Drag-and-drop task definitions.
 import tasks from "../src/data/symbols/task3.json";
@@ -155,20 +156,6 @@ function showTask(index) {
 // --- Drag and drop via Pointer Events (works for mouse, touch, and pen) ---
 
 let drag = null; // { chip, ghost, taskEl, offsetX, offsetY }
-
-// Which chip (if any) the dragged chip should be inserted before, based on the
-// pointer position. Uses reading order (row, then column) so it works when the
-// chips wrap onto multiple rows.
-function getInsertBeforeElement(zone, x, y) {
-  const chips = [...zone.querySelectorAll(".chip:not(.dragging)")];
-  const pointerKey = y * 100000 + x;
-  for (const chip of chips) {
-    const box = chip.getBoundingClientRect();
-    const key = (box.top + box.height / 2) * 100000 + (box.left + box.width / 2);
-    if (pointerKey < key) return chip;
-  }
-  return null;
-}
 
 function onPointerDown(event) {
   const chip = event.target.closest(".chip");
