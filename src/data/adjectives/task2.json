@@ -1,0 +1,58 @@
+{
+  "sentences": [
+    {
+      "id": "thick-line",
+      "problem": "This line is too thick",
+      "before": "Make it",
+      "after": "",
+      "audio": "thick-line.mp3",
+      "translation": "Эта линия слишком толстая — сделай её тоньше",
+      "options": ["thinner", "shorter", "bigger", "faster"]
+    },
+    {
+      "id": "narrow-menu",
+      "problem": "The side menu is too narrow",
+      "before": "Make it 10%",
+      "after": "",
+      "audio": "narrow-menu.mp3",
+      "translation": "Боковое меню слишком узкое — сделай его на 10% шире",
+      "options": ["wider", "thinner", "lighter", "shorter"]
+    },
+    {
+      "id": "slow-animation",
+      "problem": "The opening animation is too slow",
+      "before": "Make it at least two times",
+      "after": "",
+      "audio": "slow-animation.mp3",
+      "translation": "Анимация открытия слишком медленная — сделай её как минимум в два раза быстрее",
+      "options": ["faster", "bigger", "higher", "shorter"]
+    },
+    {
+      "id": "dark-background",
+      "problem": "The background is too dark",
+      "before": "Can we make it a bit",
+      "after": "?",
+      "audio": "dark-background.mp3",
+      "translation": "Фон слишком тёмный — можем сделать его чуть светлее?",
+      "options": ["lighter", "thinner", "smaller", "lower"]
+    },
+    {
+      "id": "small-logo",
+      "problem": "Our logo is too small",
+      "before": "Let’s make it",
+      "after": "",
+      "audio": "small-logo.mp3",
+      "translation": "Наш логотип слишком маленький — давай сделаем его больше",
+      "options": ["bigger", "faster", "shorter", "thinner"]
+    },
+    {
+      "id": "long-link",
+      "problem": "The text in the link is too long",
+      "before": "Let’s make the link",
+      "after": "",
+      "audio": "long-link.mp3",
+      "translation": "Текст в ссылке слишком длинный — давай сделаем ссылку короче",
+      "options": ["shorter", "wider", "bigger", "faster"]
+    }
+  ]
+}

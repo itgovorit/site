@@ -1,0 +1,11 @@
+{
+  "nouns": [
+    { "noun": "size", "transcription": "/saɪz/", "translation": "размер", "pair": "big-small" },
+    { "noun": "height", "transcription": "/haɪt/", "translation": "высота", "pair": "high-low" },
+    { "noun": "width", "transcription": "/wɪdθ/", "translation": "ширина", "pair": "wide-narrow" },
+    { "noun": "length", "transcription": "/lɛŋθ/", "translation": "длина", "pair": "long-short" },
+    { "noun": "thickness", "transcription": "/ˈθɪknəs/", "translation": "толщина", "pair": "thick-thin" },
+    { "noun": "transparency", "transcription": "/trænsˈpærənsi/", "translation": "прозрачность", "pair": "transparent-opaque" },
+    { "noun": "speed", "transcription": "/spiːd/", "translation": "скорость", "pair": "fast-slow" }
+  ]
+}

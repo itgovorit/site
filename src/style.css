@@ -394,3 +394,80 @@
     font-size: 1.7rem;
   }
 }
+
+/* Adjective board (adjectives task 1). A 10x10 grid where two filled rectangles
+   show what a pair of opposites means: a big block beside a small one, a tall
+   bar beside a short one. Both shapes stand on the same row, so the only thing
+   that differs is the dimension the words are about.
+   Styled after a GitHub contribution graph, which every developer already
+   reads at a glance: separated tiles rather than a ruled table, an empty cell
+   that is a pale tile in its own right, and GitHub's darkest green for a
+   filled one. */
+.adj-grid {
+  /* GitHub's own contribution scale: the palest and the darkest of its greens,
+     plus its empty-day grey. */
+  --adj-empty: #ebedf0;
+  --adj-light: #9be9a8;
+  --adj-fill: #216e39;
+  /* Low enough that the red underneath clearly reads through the green. */
+  --adj-under: #a01818;
+  --adj-glass: 0.45;
+  /* One tile's fade during a board swap. */
+  --adj-fade: 240ms;
+  /* A hairline, so the tiles read as one surface divided up rather than as
+     scattered squares. Deliberately a fixed 1px and not a share of the cell:
+     the separation should stay a hairline at every board size. */
+  --adj-gap: 1px;
+
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  gap: var(--adj-gap);
+  /* Equal fractions on both axes plus a square board keeps the cells square at
+     any width: the nine gaps subtract the same amount from each direction. */
+  aspect-ratio: 1;
+  width: 100%;
+}
+.adj-grid > span {
+  /* Positioned for the sake of the translucent overlay below. */
+  position: relative;
+  background-color: var(--adj-empty);
+  /* A share rather than a fixed radius, so the corners stay in proportion as
+     the tiles grow. */
+  border-radius: 12%;
+  /* Each tile fades on its own; the delay that staggers them is set per tile
+     from script, in a shuffled order. */
+  transition: opacity var(--adj-fade) ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .adj-grid > span {
+    transition: none;
+  }
+}
+.adj-grid > .t-fill {
+  background-color: var(--adj-fill);
+}
+/* Dark vs light is the one pair where the shapes are identical and only the
+   colour carries the meaning, so this is GitHub's palest green against its
+   darkest. */
+.adj-grid > .t-light {
+  background-color: var(--adj-light);
+}
+/* The layer that sits beneath the green on the transparent/opaque board. Red so
+   that whether it shows through is unmistakable. */
+.adj-grid > .t-under {
+  background-color: var(--adj-under);
+}
+/* Translucent green laid over whatever the cell already is. Painted as an
+   overlay rather than by fading the cell, so the red underneath really does
+   show through it — on the opaque half the same green is a solid .t-fill and
+   hides the red completely. */
+.adj-grid > .has-glass::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-color: var(--adj-fill);
+  opacity: var(--adj-glass);
+}

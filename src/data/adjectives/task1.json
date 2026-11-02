@@ -1,0 +1,116 @@
+{
+  "grid": 10,
+  "pairs": [
+    {
+      "id": "big-small",
+      "title": "Big — Small",
+      "transcription": "/bɪɡ/ — /smɔːl/",
+      "translation": "большой — маленький",
+      "note": "<strong>Big</strong> — это про физический размер. В более широком смысле юзаем <strong>large</strong>. <i>Large bundle size</i> [<i>большой размер бандла</i>]",
+      "audio": "big-small.mp3",
+      "alt": "Сетка 10 на 10: слева закрашен большой прямоугольник 3 на 6 клеток, справа маленький 2 на 2. Оба стоят на одной линии.",
+      "confusableWith": ["wide-narrow"],
+      "shapes": [
+        { "col": 1, "row": 2, "width": 3, "height": 6 },
+        { "col": 7, "row": 6, "width": 2, "height": 2 }
+      ]
+    },
+    {
+      "id": "dark-light",
+      "title": "Dark — Light",
+      "transcription": "/dɑːrk/ — /laɪt/",
+       "note": "<strong>light</strong> также имеет значение <i>лёгкий</i> в широком понимании этого слова.",
+      "translation": "тёмный — светлый",
+      "audio": "dark-light.mp3",
+      "alt": "Сетка 10 на 10: два одинаковых квадрата 3 на 5 клеток. Левый закрашен тёмно-зелёным, правый — светло-зелёным.",
+      "shapes": [
+        { "col": 1, "row": 2, "width": 3, "height": 5 },
+        { "col": 6, "row": 2, "width": 3, "height": 5, "tone": "light" }
+      ]
+    },
+    {
+      "id": "high-low",
+      "title": "High — Low (short)",
+      "transcription": "/haɪ/ — /loʊ/",
+      "translation": "высокий — низкий",
+      "note": "<strong>low</strong> мы используем для описания позиции элемента на странице. Если хотим описать высоту элемента, используем <strong>short</strong> [короткий, низкий]",
+      "audio": "high-low.mp3",
+      "alt": "Сетка 10 на 10: слева высокий столбик шириной в одну клетку и высотой в девять, справа низкий столбик высотой в три клетки. Оба стоят на нижней линии.",
+      "confusableWith": ["long-short"],
+      "shapes": [
+        { "col": 2, "row": 1, "width": 1, "height": 9 },
+        { "col": 7, "row": 7, "width": 1, "height": 3 }
+      ]
+    },
+    {
+      "id": "wide-narrow",
+      "title": "Wide — Narrow",
+      "transcription": "/waɪd/ — /ˈnæroʊ/",
+      "translation": "широкий — узкий",
+      "audio": "wide-narrow.mp3",
+      "alt": "Сетка 10 на 10: два столбика одинаковой высоты в девять клеток. Левый шириной в три клетки, правый — в одну.",
+      "shapes": [
+        { "col": 1, "row": 1, "width": 3, "height": 9 },
+        { "col": 7, "row": 1, "width": 1, "height": 9 }
+      ]
+    },
+    {
+      "id": "long-short",
+      "title": "Long — Short",
+      "transcription": "/lɔːŋ/ — /ʃɔːrt/",
+      "translation": "длинный — короткий",
+      "note": "Оба прилагательных используются не только для описания размера, но и времени.",
+      "audio": "long-short.mp3",
+      "alt": "Сетка 10 на 10: две полоски толщиной в одну клетку от левого края. Верхняя длиной в девять клеток, нижняя — в три.",
+      "confusableWith": ["fast-slow"],
+      "shapes": [
+        { "col": 0, "row": 2, "width": 9, "height": 1 },
+        { "col": 0, "row": 7, "width": 3, "height": 1 }
+      ]
+    },
+    {
+      "id": "thick-thin",
+      "title": "Thick — Thin",
+      "transcription": "/θɪk/ — /θɪn/",
+      "translation": "толстый — тонкий",
+      "audio": "thick-thin.mp3",
+      "alt": "Сетка 10 на 10: две полоски одинаковой длины в девять клеток. Верхняя толщиной в три клетки, нижняя — в одну.",
+      "confusableWith": ["wide-narrow"],
+      "shapes": [
+        { "col": 0, "row": 1, "width": 10, "height": 3 },
+        { "col": 0, "row": 7, "width": 10, "height": 1 }
+      ]
+    },
+    {
+      "id": "transparent-opaque",
+      "title": "Transparent — Opaque",
+      "transcription": "/trænˈspærənt/ — /oʊˈpeɪk/",
+      "translation": "прозрачный — непрозрачный",
+      "audio": "transparent-opaque.mp3",
+      "alt": "Сетка 10 на 10: под зелёными квадратами лежит красная фигура. Слева зелёный полупрозрачный и красное просвечивает сквозь него, справа зелёный плотный и полностью закрывает красное.",
+      "confusableWith": ["dark-light"],
+      "shapes": [
+        { "col": 2, "row": 0, "width": 1, "height": 10, "tone": "under" },
+        { "col": 0, "row": 7, "width": 5, "height": 1, "tone": "under" },
+        { "col": 1, "row": 8, "width": 3, "height": 1, "tone": "under" },
+        { "col": 7, "row": 0, "width": 1, "height": 10, "tone": "under" },
+        { "col": 5, "row": 7, "width": 5, "height": 1, "tone": "under" },
+        { "col": 6, "row": 8, "width": 3, "height": 1, "tone": "under" },
+        { "col": 1, "row": 2, "width": 3, "height": 6, "tone": "glass" },
+        { "col": 6, "row": 2, "width": 3, "height": 6 }
+      ]
+    },
+    {
+      "id": "fast-slow",
+      "title": "Fast — Slow",
+      "transcription": "/fæst/ — /sloʊ/",
+      "translation": "быстрый — медленный",
+      "audio": "fast-slow.mp3",
+      "alt": "Сетка 10 на 10: две полоски заполняются слева направо. Верхняя заполняется быстро, нижняя — медленно.",
+      "motion": [
+        { "col": 0, "row": 2, "length": 10, "speed": "fast" },
+        { "col": 0, "row": 7, "length": 10, "speed": "slow" }
+      ]
+    }
+  ]
+}

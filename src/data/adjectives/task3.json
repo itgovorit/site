@@ -1,0 +1,42 @@
+{
+  "sentences": [
+    {
+      "id": "dark-icon",
+      "problem": "The icon is too [dark]",
+      "instruction": "make it [lighter]",
+      "possibleProblemOption": ["black"],
+      "possibleInstructionOption": ["brighter"],
+      "translation": "Иконка слишком тёмная — сделай её светлее"
+    },
+    {
+      "id": "thin-border",
+      "problem": "The border is too [thin]",
+      "instruction": "make it [thicker]",
+      "possibleProblemOption": ["narrow"],
+      "possibleInstructionOption": ["wider", "bolder"],
+      "translation": "Рамка слишком тонкая — сделай её толще"
+    },
+    {
+      "id": "small-container",
+      "problem": "The container is too small",
+      "instruction": "Increase the [height].",
+      "possibleInstructionOption": ["size"],
+      "translation": "Контейнер слишком маленький — увеличь высоту"
+    },
+    {
+      "id": "transparent-text",
+      "problem": "The text is too [transparent]",
+      "instruction": "make it [less] transparent",
+      "possibleProblemOption": ["light", "pale"],
+      "translation": "Текст слишком прозрачный — сделай его менее прозрачным"
+    },
+    {
+      "id": "narrow-width",
+      "problem": "The width is too [narrow]",
+      "instruction": "Make it [wider]",
+      "possibleProblemOption": ["small"],
+      "possibleInstructionOption": ["bigger", "larger"],
+      "translation": "Слишком узко — сделай шире"
+    }
+  ]
+}

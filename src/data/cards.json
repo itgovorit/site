@@ -30,5 +30,13 @@
     "image": "thumbnail4m.jpg",
     "link": "/instructions/",
     "isActive": true
+  },
+    {
+    "title": "Быстрее, выше, сТильнее",
+    "description": "Как о(б)суждать дизайн",
+    "imageAvif": "thumbnail5m.avif",
+    "image": "thumbnail5m.jpg",
+    "link": "/adjectives/",
+    "isActive": true
   }
 ]
