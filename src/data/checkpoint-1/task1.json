@@ -1,0 +1,37 @@
+{
+  "passwords": [
+    {
+      "id": "ssh",
+      "phrase": "ssh -p 5049 jcu@127.2.5.1",
+      "audio": "ssh.mp3",
+      "symbols": [
+        { "char": "ssh", "options": ["ssh", "cch", "ssa"] },
+        { "char": "-p", "options": ["-p", "-b", "#b"] },
+        { "char": "5049", "options": ["5049", "5019", "5409"] },
+        { "char": "jcu", "options": ["jcu", "gsy", "jsu"] },
+        { "char": "@", "options": ["@", "&", "#"] },
+        { "char": "127.2.5.1", "options": ["127.2.5.1", "137.3.5.1", "127.5.1.2"] }
+      ]
+    },
+    {
+      "id": "pass",
+      "phrase": "i8&Gy/Q",
+      "audio": "pass.mp3",
+      "symbols": [
+ { "char": "i", "options": ["i", "a", "e"] },
+        { "char": "8", "options": ["8", "3", "6"] },
+        { "char": "&", "options": ["&", "%", "*"] },
+        { "char": "G", "options": ["G", "g", "J"] },
+        { "char": "y", "options": ["y", "Y", "u"] },
+        { "char": "/", "options": ["/", "\\", "|"] },
+        { "char": "Q", "options": ["Q", "q", "K"] }
+      ]
+    },
+    {
+      "id": "script",
+      "phrase": "/tmp/aik.sh -f",
+      "audio": "script.mp3",
+      "symbols": null
+    }
+  ]
+}

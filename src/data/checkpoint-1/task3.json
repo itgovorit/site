@@ -1,0 +1,44 @@
+{
+  "steps": [
+    {
+      "id": "head",
+      "part": "head",
+      "audio": "head.mp3",
+      "instruction": "It is too small",
+      "words": ["make", "it", "bigger"],
+      "extra": ["faster"]
+    },
+    {
+      "id": "eyes",
+      "part": "eyes",
+      "audio": "eyes.mp3",
+      "instruction": "They are too light",
+      "words": ["let's", "make", "them", "darker"],
+      "extra": ["thinner"]
+    },
+    {
+      "id": "ears",
+      "part": "ears",
+      "audio": "ears.mp3",
+      "instruction": "They are too short",
+      "words": ["can", "you", "make", "them", "longer?"],
+      "extra": ["lower?"]
+    },
+    {
+      "id": "mouth",
+      "part": "mouth",
+      "audio": "mouth.mp3",
+      "instruction": "It is too narrow",
+      "words": ["let's", "make", "it", "wider"],
+      "extra": ["lighter"]
+    },
+    {
+      "id": "antennas",
+      "part": "antennas",
+      "audio": "antennas.mp3",
+      "instruction": "They are too thin",
+      "words": ["can", "you", "make", "them", "thicker?"],
+      "extra": ["slower?"]
+    }
+  ]
+}

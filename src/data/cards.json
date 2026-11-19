@@ -38,5 +38,13 @@
     "image": "thumbnail5m.jpg",
     "link": "/adjectives/",
     "isActive": true
+  },
+   {
+    "title": "Checkpoint A",
+    "description": "Время чекнуть",
+    "imageAvif": "thumbnail6m.avif",
+    "image": "thumbnail6m.jpg",
+    "link": "/checkpoint-1/",
+    "isActive": true
   }
 ]

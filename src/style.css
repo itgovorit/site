@@ -471,3 +471,219 @@
   background-color: var(--adj-fill);
   opacity: var(--adj-glass);
 }
+
+/* Blinking block cursor for the password terminal (checkpoint 1, task 1). */
+.term-cursor {
+  animation: term-blink 1s steps(1) infinite;
+}
+@keyframes term-blink {
+  50% {
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .term-cursor {
+    animation: none;
+  }
+}
+
+/* Opposites game (checkpoint 1, task 2). Retro-futuristic: a dark field with a
+   faint perspective-free grid, neon cyan platforms and a magenta ball. */
+.retro-game {
+  --retro-bg: #0b0620;
+  --retro-cyan: #2de2e6;
+  --retro-magenta: #ff3cac;
+  --retro-ink: #e8e6ff;
+
+  color: var(--retro-ink);
+  background-color: var(--retro-bg);
+  background-image:
+    linear-gradient(rgb(45 226 230 / 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(45 226 230 / 0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+  box-shadow: inset 0 0 0 2px rgb(45 226 230 / 0.35), 0 0 24px rgb(255 60 172 / 0.15);
+}
+/* Scanlines over everything, purely decorative. */
+.retro-game::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(transparent 0 2px, rgb(0 0 0 / 0.18) 2px 3px);
+}
+.retro-platform {
+  width: 34%;
+  translate: -50% 0;
+  padding: 0.3rem 0.25rem;
+  border: 2px solid var(--retro-cyan);
+  border-radius: 4px;
+  background: rgb(45 226 230 / 0.08);
+  box-shadow: 0 0 10px rgb(45 226 230 / 0.45);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-shadow: 0 0 6px rgb(45 226 230 / 0.8);
+}
+.retro-platform.is-right {
+  --retro-cyan: #4dff88;
+}
+.retro-platform.is-wrong {
+  --retro-cyan: #ff4d4d;
+}
+.retro-ball {
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #ffd1ec, var(--retro-magenta) 60%, #a0156b);
+  box-shadow: 0 0 14px var(--retro-magenta);
+  z-index: 1;
+}
+.retro-overlay {
+  z-index: 2;
+  background: rgb(11 6 32 / 0.85);
+}
+.retro-title {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: var(--retro-magenta);
+  text-shadow: 0 0 10px var(--retro-magenta);
+}
+
+/* The game's left/right controls: big, neon, and styled like the game box so
+   they read as part of the machine rather than ordinary page buttons. */
+.retro-key {
+  height: 5rem;
+  border: 2px solid #2de2e6;
+  border-radius: var(--radius-box);
+  background: #0b0620;
+  color: #2de2e6;
+  font-size: 2.5rem;
+  line-height: 1;
+  text-shadow: 0 0 10px rgb(45 226 230 / 0.9);
+  box-shadow:
+    0 0 14px rgb(45 226 230 / 0.45),
+    inset 0 0 12px rgb(45 226 230 / 0.15);
+  cursor: pointer;
+  touch-action: manipulation;
+  user-select: none;
+  transition: transform 80ms ease, box-shadow 80ms ease, background-color 80ms ease;
+}
+.retro-key:hover {
+  background: #150b3a;
+}
+/* Pressed: sinks and flares magenta, so a tap is felt even mid-game. */
+.retro-key:active {
+  transform: translateY(2px) scale(0.98);
+  border-color: #ff3cac;
+  color: #ff3cac;
+  text-shadow: 0 0 12px rgb(255 60 172 / 0.9);
+  box-shadow: 0 0 20px rgb(255 60 172 / 0.6);
+}
+.retro-key:focus-visible {
+  outline: 2px solid #ff3cac;
+  outline-offset: 3px;
+}
+
+/* Robot-drawing task (checkpoint 1, task 3): the instruction strip and the
+   letter box for the missing part of the word. */
+.retro-line {
+  color: #e8e6ff;
+  background: #0b0620;
+  border: 2px solid #2de2e6;
+  box-shadow: 0 0 12px rgb(45 226 230 / 0.35);
+}
+.retro-input {
+  width: calc(var(--retro-letters, 3) * 1ch + 1.25rem);
+  min-width: 4.5rem;
+  padding: 0.25rem 0.5rem;
+  border: 2px solid #2de2e6;
+  border-radius: 4px;
+  background: #0b0620;
+  color: #2de2e6;
+  caret-color: #ff3cac;
+  font: inherit;
+  letter-spacing: 0.15em;
+  text-align: center;
+  text-transform: uppercase;
+  outline: none;
+}
+.retro-input:focus {
+  border-color: #ff3cac;
+  box-shadow: 0 0 10px rgb(255 60 172 / 0.5);
+}
+.retro-input::placeholder {
+  color: rgb(45 226 230 / 0.4);
+}
+
+/* Word pills for the robot task (checkpoint 1, task 3). Each pill can carry an
+   overlay: green with the word's number once it is in place, red on a wrong
+   pick. The overlay sits on the pill, so the word stays readable under it. */
+.word-pill {
+  position: relative;
+  overflow: hidden;
+  padding: 0.45rem 0.9rem;
+  border: 2px solid #2de2e6;
+  border-radius: 9999px;
+  background: #0b0620;
+  color: #e8e6ff;
+  font: inherit;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgb(45 226 230 / 0.35);
+  touch-action: manipulation;
+  user-select: none;
+  transition: transform 80ms ease;
+}
+.word-pill:active:not(:disabled) {
+  transform: scale(0.96);
+}
+.word-pill:disabled {
+  cursor: default;
+}
+.word-pill:focus-visible {
+  outline: 2px solid #ff3cac;
+  outline-offset: 2px;
+}
+/* Tinted overlay over the whole pill. The number or cross sits in a small
+   badge at the left edge, so it never covers the word. */
+.word-pill:has(.pill-mark) {
+  padding-left: 2.1rem;
+}
+.pill-mark {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.pill-num {
+  position: absolute;
+  top: 50%;
+  left: 0.35rem;
+  translate: 0 -50%;
+  display: grid;
+  place-items: center;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  line-height: 1;
+  color: #fff;
+}
+.pill-right {
+  background: rgb(34 197 94 / 0.35);
+}
+.pill-right .pill-num {
+  background: #16a34a;
+}
+.pill-wrong {
+  background: rgb(239 68 68 / 0.4);
+}
+.pill-wrong .pill-num {
+  background: #dc2626;
+}
+.word-pill.is-wrong {
+  border-color: #ef4444;
+  box-shadow: 0 0 10px rgb(239 68 68 / 0.6);
+}

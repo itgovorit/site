@@ -1,0 +1,19 @@
+{
+  "pairs": [
+    { "id": "big-small", "type": "adjective", "words": ["big", "small"], "translation": "большой — маленький" },
+    { "id": "dark-light", "type": "adjective", "words": ["dark", "light"], "translation": "тёмный — светлый" },
+    { "id": "high-low", "type": "adjective", "words": ["high", "low"], "translation": "высокий — низкий" },
+    { "id": "wide-narrow", "type": "adjective", "words": ["wide", "narrow"], "translation": "широкий — узкий" },
+    { "id": "long-short", "type": "adjective", "words": ["long", "short"], "translation": "длинный — короткий" },
+    { "id": "thick-thin", "type": "adjective", "words": ["thick", "thin"], "translation": "толстый — тонкий" },
+    { "id": "transparent-opaque", "type": "adjective", "words": ["transparent", "opaque"], "translation": "прозрачный — непрозрачный" },
+    { "id": "fast-slow", "type": "adjective", "words": ["fast", "slow"], "translation": "быстрый — медленный" },
+
+    { "id": "open-close", "type": "verb", "words": ["open", "close"], "translation": "открыть — закрыть" },
+    { "id": "add-remove", "type": "verb", "words": ["add", "remove"], "translation": "добавить — удалить" },
+    { "id": "mute-unmute", "type": "verb", "words": ["mute", "unmute"], "translation": "выключить звук — включить звук" },
+    { "id": "increase-decrease", "type": "verb", "words": ["increase", "decrease"], "translation": "увеличить — уменьшить" },
+    { "id": "zoom-in-out", "type": "verb", "words": ["zoom in", "zoom out"], "translation": "приблизить — отдалить" },
+    { "id": "scroll-up-down", "type": "verb", "words": ["scroll up", "scroll down"], "translation": "прокрутить вверх — прокрутить вниз" }
+  ]
+}
